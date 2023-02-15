@@ -482,7 +482,7 @@ const String strCarerAddress = "Carer Address:\t";
 const String strClientName = "Client Name:\t";
 const String strThisIsAAgreement = "This is an agreement between";
 
-/*=============================================Service agreement screens========================*/
+//!*=============================================Service agreement screens========================*/
 const String strPendingForClient = "Pending for client approval";
 const String strInvoice = "Invoice";
 const String strStartDate = "Start Date";

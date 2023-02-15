@@ -40,15 +40,18 @@ dependencies:
   image_cropper: ^3.0.1
   video_player: ^2.5.1
   image_picker: ^0.8.6+1
-  table_calendar: ^3.0.9
   country_code_picker: ^2.0.2
-  intl: ^0.18.0
+  intl: ^0.17.0
   cached_network_image: ^3.2.3
   introduction_screen: ^3.1.4
   flutter_easyloading: ^3.0.5
   file_picker: ^5.2.5
   flutter_html: ^2.2.1
   fluttertoast: ^8.1.3
+  flutter_form_builder: ^7.7.0
+  form_builder_validators: ^8.4.0
+  pin_code_fields: ^7.4.0
+
 
 dev_dependencies:
   flutter_test:
@@ -79,11 +82,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+fonts:
+  - family: Schyler
+    fonts:
+      - asset: fonts/Lexend-Regular.ttf
+      - asset: fonts/Lexend-Light.ttf
+      - asset: fonts/Lexend-Bold.ttf
+      - asset: fonts/Lexend-SemiBold.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

@@ -18,7 +18,7 @@ textStyleNormal(
       letterSpacing: letterSpacing);
 }
 
-/* ===================================================== Text Style Medium ===================================================*/
+//* ===================================================== Text Style Medium ===================================================*/
 
 TextStyle textStyleMedium(
     {Color? color = AppColors.colorGrey,
@@ -38,7 +38,7 @@ TextStyle textStyleMedium(
       textBaseline: textBaseline);
 }
 
-/* ===================================================== Text Style SemiBold ===================================================*/
+//* ===================================================== Text Style SemiBold ===================================================*/
 
 TextStyle textStyleSemiBold(
     {Color? color = Colors.black,
@@ -58,7 +58,7 @@ TextStyle textStyleSemiBold(
       textBaseline: textBaseline);
 }
 
-/* ===================================================== Text Style Bold ===================================================*/
+//* ===================================================== Text Style Bold ===================================================*/
 
 textStyleBold(
     {Color? color,

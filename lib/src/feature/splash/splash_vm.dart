@@ -13,10 +13,10 @@ class SplashVm extends ChangeNotifier {
   bool isFirstTime = false;
 
   SplashVm() {
-    _navigateToNextScreen();
+    navigateToNextScreen();
   }
 
-  _navigateToNextScreen() async {
+  navigateToNextScreen() async {
     await Future.delayed(const Duration(milliseconds: 800));
     navigatorKey.currentState?.pushNamed(AppRouter.welcome);
   }

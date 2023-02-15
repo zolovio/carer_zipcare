@@ -7,11 +7,7 @@ import 'package:zip_care/src/core/constants/strings.dart';
 import 'package:zip_care/src/feature/splash/splash_screen.dart';
 
 void main() {
-  runApp(
-    const ProviderScope(
-      child: MyApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -22,17 +18,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(411, 683),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) => MaterialApp(
-        theme: themeData,
-        title: strAppName,
-        navigatorKey: navigatorKey,
-        onGenerateRoute: (settings) => AppRouter.generateRoute(settings),
-        debugShowCheckedModeBanner: false,
-        home: const SplashScreen(),
-      ),
-    );
+        designSize: const Size(411, 683),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) => MaterialApp(
+            theme: themeData,
+            title: strAppName,
+            navigatorKey: navigatorKey,
+            onGenerateRoute: (settings) => AppRouter.generateRoute(settings),
+            debugShowCheckedModeBanner: false,
+            home: SplashScreen()));
   }
 }

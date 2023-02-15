@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zip_care/src/core/app_utils/app_router.dart';
 import 'package:zip_care/src/core/constants/colors.dart';
 import 'package:zip_care/src/feature/welcome/welcome_vm.dart';
 
@@ -49,31 +50,37 @@ class WelcomeScreens extends StatelessWidget {
                         elevation: elvation_5,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(margin_40))),
+                                bottomLeft:
+                                    Radius.circular(margin_40))),
                         child: Container(
                           height: size.height * 0.8,
                           width: size.width,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(margin_40)),
+                                bottomLeft:
+                                    Radius.circular(margin_40)),
                           ),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment:
+                                CrossAxisAlignment.center,
                             children: [
                               Expanded(
                                 child: Center(
                                   child: PageView.builder(
                                     controller: _vm.pageController,
                                     scrollDirection: Axis.horizontal,
-                                    physics: const BouncingScrollPhysics(),
+                                    physics:
+                                        const BouncingScrollPhysics(),
                                     itemCount: _vm.selectData.length,
                                     onPageChanged: (page) {
                                       _vm.onPageChanged(page);
                                     },
                                     itemBuilder: (context, index) {
-                                      return _pagesContainer(index, size, _vm);
+                                      return _pagesContainer(
+                                          index, size, _vm);
                                     },
                                   ),
                                 ),
@@ -86,18 +93,26 @@ class WelcomeScreens extends StatelessWidget {
                                     scrollDirection: Axis.horizontal,
                                     physics: const ScrollPhysics(),
                                     itemBuilder:
-                                        (BuildContext context, int index) {
+                                        (BuildContext context,
+                                            int index) {
                                       return Container(
-                                          padding: const EdgeInsets.all(20),
-                                          margin: const EdgeInsets.all(2),
+                                          padding:
+                                              const EdgeInsets.all(
+                                                  20),
+                                          margin:
+                                              const EdgeInsets.all(2),
                                           height: margin_10,
                                           width: margin_10,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(20),
-                                            color: _vm.selectedIndex == index
-                                                ? AppColors.darkPinkColor
-                                                : AppColors.lightGreyColor,
+                                                BorderRadius.circular(
+                                                    20),
+                                            color: _vm.selectedIndex ==
+                                                    index
+                                                ? AppColors
+                                                    .darkPinkColor
+                                                : AppColors
+                                                    .lightGreyColor,
                                           ));
                                     }),
                               ),
@@ -111,7 +126,7 @@ class WelcomeScreens extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  child: _skipButton(_vm.selectedIndex),
+                  child: _skipButton(_vm.selectedIndex, context),
                 )
               ],
             ));
@@ -123,7 +138,10 @@ class WelcomeScreens extends StatelessWidget {
     return Container(
       width: size.width,
       margin: EdgeInsets.only(
-          top: margin_15, bottom: margin_30, left: margin_20, right: margin_20),
+          top: margin_15,
+          bottom: margin_30,
+          left: margin_20,
+          right: margin_20),
       padding: EdgeInsets.only(top: margin_50, bottom: margin_30),
       color: AppColors.whiteColor,
       child: Column(
@@ -143,7 +161,8 @@ class WelcomeScreens extends StatelessWidget {
   _title(index, WelcomeVm vm) {
     return Text(
       vm.selectData[index].title,
-      style: textStyleSemiBold(color: Colors.black, fontsize: font_25),
+      style:
+          textStyleSemiBold(color: Colors.black, fontsize: font_25),
       textAlign: TextAlign.center,
     );
   }
@@ -151,7 +170,8 @@ class WelcomeScreens extends StatelessWidget {
   _description(index, WelcomeVm vm) {
     return Text(
       '${vm.selectData[index].desc}',
-      style: textStyleMedium(color: AppColors.colorGrey, fontsize: font_16),
+      style: textStyleMedium(
+          color: AppColors.colorGrey, fontsize: font_16),
       textAlign: TextAlign.center,
     );
   }
@@ -164,9 +184,10 @@ class WelcomeScreens extends StatelessWidget {
   }
 }
 
-_skipButton(int index) {
+_skipButton(int index, context) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: width_100, vertical: height_20),
+    padding: EdgeInsets.symmetric(
+        horizontal: width_100, vertical: height_20),
     child: cbtnTextButton1(
       height: height_45,
       textSize: font_16,
@@ -174,6 +195,12 @@ _skipButton(int index) {
       buttonText: index == 3 ? strGetStarted : strSkip,
       textColor: AppColors.blackColor,
       onPressed: () {
+        if (index == 3) {
+          Navigator.pushNamed(context, AppRouter.login);
+        } else {
+          Navigator.pushNamed(context, AppRouter.login);
+        }
+
         // localStorage.write(LocalStorage.isFirstTime, true);
         // Get.offAllNamed(Routes.loginRoute);
       },
