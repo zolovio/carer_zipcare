@@ -8,7 +8,7 @@ import 'package:zip_care/src/core/constants/font_family.dart';
 class CommonTextFiled extends StatelessWidget {
   final String name;
   final String hintText;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final Widget suffixIcon;
   final bool obscureText;
   final TextInputType keyboardType;
@@ -16,10 +16,12 @@ class CommonTextFiled extends StatelessWidget {
   final TextInputAction textInputAction;
   final List<TextInputFormatter>? inputFormatters;
   final bool isEnabled;
+  final int maxLine;
 
   const CommonTextFiled(
       {super.key,
-      required this.controller,
+      this.controller,
+      this.maxLine = 1,
       required this.hintText,
       required this.name,
       required this.validator,
@@ -34,29 +36,37 @@ class CommonTextFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return FormBuilderTextField(
         enabled: isEnabled,
+        maxLines: maxLine,
         controller: controller,
         obscureText: obscureText,
         inputFormatters: inputFormatters,
         decoration: InputDecoration(
             suffixIcon: suffixIcon,
             hintText: hintText,
-            hintStyle: const TextStyle(fontFamily: FontFamily.lexendRegular),
+            hintStyle:
+                TextStyle(fontFamily: FontFamily.lexendRegular),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(radius_15),
-                borderSide:
-                    const BorderSide(color: AppColors.lightestGreyColor)),
+                borderSide: const BorderSide(
+                    color: AppColors.lightestGreyColor)),
             errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(radius_15)),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(radius_15),
-                borderSide:
-                    const BorderSide(color: AppColors.lightestGreyColor)),
+                borderSide: const BorderSide(
+                    color: AppColors.lightestGreyColor)),
+            disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius_15),
+                borderSide: const BorderSide(
+                    color: AppColors.lightestGreyColor)),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(radius_15),
-                borderSide: const BorderSide(color: AppColors.darkPinkColor)),
+                borderSide:
+                    const BorderSide(color: AppColors.darkPinkColor)),
             focusedErrorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(radius_15),
-                borderSide: const BorderSide(color: AppColors.colorPink))),
+                borderSide:
+                    const BorderSide(color: AppColors.colorPink))),
         validator: validator,
         keyboardType: keyboardType,
         textInputAction: textInputAction,

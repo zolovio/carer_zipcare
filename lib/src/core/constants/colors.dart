@@ -37,6 +37,7 @@ class AppColors {
       Color.fromRGBO(255, 194, 215, 1.0);
   static const Color lighterPinkColor =
       Color.fromRGBO(255, 223, 239, 1.0);
+  static const Color lighterPinkColor2 = Color(0xffFFA4D2);
   static const Color darkPinkColor =
       Color.fromRGBO(255, 94, 176, 1.0);
   static const Color darksPinkColor =
@@ -49,11 +50,9 @@ class AppColors {
       Color.fromRGBO(222, 255, 223, 1.0);
   static const Color purpleLightColor =
       Color.fromRGBO(244, 243, 255, 1.0);
-
   static const Color lightestPurpleColor =
       Color.fromRGBO(228, 226, 252, 1.0);
-  Color redColor = const Color(0xFFFF0000);
-  Color purpleColor = const Color(0xFF7468F8);
-
-  static Color textColor = const Color(0xFF3A3A3A);
+  static const Color redColor = const Color(0xFFFF0000);
+  static const Color purpleColor = const Color(0xFF7468F8);
+  static const Color blueColors = const Color(0xFF1E74DB);
 }

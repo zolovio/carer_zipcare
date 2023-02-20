@@ -23,7 +23,8 @@ const String STRING_serverMaintenance =
 const String STRING_pleaseTryAgain = "Please try again later";
 const String STRING_failedToConnect = "Failed host lookup";
 
-const String strEndTime = "Press one more time to push app into background";
+const String strEndTime =
+    "Press one more time to push app into background";
 const String strSkip = "Skip";
 const String strSearchAddress = "Search Address";
 const String strPostCode = "Postcode*";
@@ -35,10 +36,12 @@ const String strLevelOfConfidence =
     "Please Select the level of confidence you have in handling this condition";
 const String strRelavantQualification =
     "Do you hold a relevant care qualification?";
-const String strAttendAnyRelavant = "Have you attend any relevant training?";
+const String strAttendAnyRelavant =
+    "Have you attend any relevant training?";
 const String strTypeOfDBS = "Type of DBS/PVG/Access NI Certificate* ";
 const String strTypeOfHour = "Type of Hour ";
-const String strUploadCertificateHere = "Upload your certificate here";
+const String strUploadCertificateHere =
+    "Upload your certificate here";
 const String strUploadVideoHere = "Upload your Video here";
 const String strIdProof = "Upload your id proof here";
 const String strMaxFileSize30MB = "Max. File Size: 8 MB";
@@ -64,14 +67,16 @@ const String strImageMoreThan = "Images can't be more than 5!";
 const String strAppName = "Zip Care";
 const String strCommunication = "Communication";
 const String strEmpathy = "Empathy";
-const String strFlexibilityadaptability = "Flexibility & adaptability";
+const String strFlexibilityadaptability =
+    "Flexibility & adaptability";
 const String strEmotionalstability = "Emotional stability";
 const String strResponsibility = "Responsibility";
 const String strHonesty = "Honesty";
 const String strTimemanagement = "Time management";
 const String strAnyOther = "Any Other";
 const String strSlotsFound = "No Slots Found";
-const String strVerification = "Your Id Verification is completed already!";
+const String strVerification =
+    "Your Id Verification is completed already!";
 
 const String strL1 = "Entry or Level 1";
 const String strL2 = "Level 2";
@@ -104,8 +109,10 @@ const String strBankAccount = "Bank account Number";
 const String strFireSafety = "Fire safety";
 const String strFirstAid = "First aid";
 const String strFoodSafety = "Food safety and catering";
-const String strMedicationSafe = "Medication safe handling and awareness";
-const String strMentalCapacity = "Mental capacity and deprivation of liberty";
+const String strMedicationSafe =
+    "Medication safe handling and awareness";
+const String strMentalCapacity =
+    "Mental capacity and deprivation of liberty";
 const String strEquality = "Equality, diversity and human rights";
 const String strOther = "Other";
 const String strSearch = "Search";
@@ -133,7 +140,8 @@ const String strServicesOffered = "Services Offered";
 const String strBasic = "Basic";
 const String strFemale = "Female";
 const String strMale = "Male";
-const String strIsEnhanceONDBS = "Is your Enhance DBS on the update service?*";
+const String strIsEnhanceONDBS =
+    "Is your Enhance DBS on the update service?*";
 const String strEnhanced = "Enhanced";
 const String strCountryName = "Country Name";
 const String strDOB = "Date of birth*";
@@ -168,7 +176,8 @@ const String strFirstNameEmpty = "First Name cannot be empty!";
 const String strFullNameEmpty = "Full Name cannot be empty!";
 const String strWriteMsgEmpty = "Please write your message!";
 const String strEnterAnswerEmpty = "Please enter your answer!";
-const String strNameReferenceEmpty = "Name of Reference cannot be empty!";
+const String strNameReferenceEmpty =
+    "Name of Reference cannot be empty!";
 const String strLastNameEmpty = "Last Name cannot be empty!";
 const String strValidFirstName = "Please enter a valid first name!";
 const String strUserNameEmpty = "Username cannot be empty!";
@@ -179,12 +188,15 @@ const String strPasswordNotMatch =
 const String strPassswordMustEightChar =
     "Password must contain minimum 8 characters!";
 const String strPhoneEmpty = "Phone Number cannot be empty!";
-const String strVaildPhoneNumber = "Please enter a valid Phone Number!";
+const String strVaildPhoneNumber =
+    "Please enter a valid Phone Number!";
 const String strContactEmpty = "Contact Number cannot be empty!";
-const String strVaildContactNumber = "Please enter a valid Contact Number!";
+const String strVaildContactNumber =
+    "Please enter a valid Contact Number!";
 const String strPriceEmpty = "Rate cannot be empty!";
 const String strPrice = "Rate can't be zero";
-const String strTermsConditions = "Please agree to the terms & conditions!";
+const String strTermsConditions =
+    "Please agree to the terms & conditions!";
 const String strPincodeName = 'Pincode cannot be blank!';
 const String strChooseImage = 'Please choose image';
 const String strChooseVideo = 'Please choose video';
@@ -203,46 +215,57 @@ const String strCostEmpty = "Cost can't be empty!";
 const String strDescriptionEmpty = "Description can't be empty!";
 const String strShiftFeeEmpty = "Shift Fee can't be empty!";
 const String strShiftFeeZero = "Shift Fee can't be zero!";
-const String strStartDateLess = "Start Date can't be less than End Date";
+const String strStartDateLess =
+    "Start Date can't be less than End Date";
 const String strStartSame = "Start Date and End Date can't be same!";
-const String strStartTimeLess = "Start Time can't be less than End Time";
-const String strStartTimeSame = "Start Time and End Time can't be same!";
+const String strStartTimeLess =
+    "Start Time can't be less than End Time";
+const String strStartTimeSame =
+    "Start Time and End Time can't be same!";
 const String strSelectImage = 'Select Image ';
 const String strSelectVideo = 'Select Video ';
 const String choose = 'Choose';
 const String camera = 'Camera';
 const String gallery = 'Gallery';
-const String strStreetAddressEmpty = 'Street Address cannot be empty!';
+const String strStreetAddressEmpty =
+    'Street Address cannot be empty!';
 const String strAddressEmpty = 'Address cannot be empty!';
 const String strCityNameTxt = 'City cannot be blank!';
 const String strCountryNameTxt = 'Country name cannot be blank!';
-const String strCertificateNumberTxt = 'Certificate number cannot be blank!';
-const String strInsuranceNumberTxt = 'Insurance number cannot be blank!';
+const String strCertificateNumberTxt =
+    'Certificate number cannot be blank!';
+const String strInsuranceNumberTxt =
+    'Insurance number cannot be blank!';
 const String strRateTxt = 'Rate cannot be blank!';
 const String strFieldTxt = 'Field cannot be blank!';
 const String strAreYouSure = "Are You Sure to Logout ?";
 const String strConfirm = "Confirm";
 const String strNoAllow = "No,Cancel";
 const String strdateBirthTxt = 'Please select date of birth!';
-const String strcertificationTxt = 'Please select certificate issue date!';
+const String strcertificationTxt =
+    'Please select certificate issue date!';
 const String strNationalityTxt = 'Please select nationality!';
 const String strUploadCertificateTxt = 'Please upload certificate!';
 
-const String strNameReference = "Name of reference";
+const String strNameReference = "Name of Referee";
 const String strUploadSuccess = "File uploaded successfully!";
 const String strAnswerSelect =
     "Please select atleast one answer of a question!";
 const String strUploadImage = "Please upload atleast one receipt!";
-const String strSelectSkill = "Please select atleast one services offered";
-const String strThingEnjoySkill = "Please select atleast one thing you enjoy";
+const String strSelectSkill =
+    "Please select atleast one services offered";
+const String strThingEnjoySkill =
+    "Please select atleast one thing you enjoy";
 const String strSelectRefOccupation =
     "Please select reference person occupation";
 const String strSelectHowLongYouKnow =
     "Please select how long you know this person";
 const String videoSize = "Please select valid video size";
 const String strLangugeSelect = "Please select atleast one language";
-const String strSoftSkillSelect = "Please select atleast one soft skill";
-const String strSelectHealth = "Please select atleast one health condition";
+const String strSoftSkillSelect =
+    "Please select atleast one soft skill";
+const String strSelectHealth =
+    "Please select atleast one health condition";
 const String strSelectQualification =
     "Please select atleast one qualification and training";
 const String strFormat = "File format is invalid";
@@ -254,24 +277,31 @@ const String strReferenceNotAccepeted =
 const String strUrgentNeed = "Urgent need";
 const String strMatchScore = "Match Score 99%";
 const String strUrgentCareNeed = "Urgent Care Needed";
-const String strPreparedToTravel = "How far are you prepared to travel?";
-const String strPerWeekWork = "How many hours would you want to work per week?";
+const String strPreparedToTravel =
+    "How far are you prepared to travel?";
+const String strPerWeekWork =
+    "How many hours would you want to work per week?";
 const String strHowmanyTimeWorked =
     "How many years have you worked as a carer?";
 const String strLTDCompany = "LTD Company";
 const String strLLPCompany = "LLP Company";
-const String strUniqueTaxReferenceNumber = "Type your answer..";
+const String strUniqueTaxReferenceNumber =
+    "Unique Tax Reference number";
 const String strSoleTrader = "Sole Trader";
 const String strWriteMessageHere = "write message here...";
 const String strWriteHere = "write here...";
-const String strSoleTrade = "Are you sole trade with a registered company?";
-const String strDoYouHaveRight = "Do you have the right to work in the UK?";
+const String strSoleTrade =
+    "Are you sole trade with a registered company?";
+const String strDoYouHaveRight =
+    "Do you have the right to work in the UK?";
 const String strcommonTxt1 =
     "Do you have access to personal transport e.g car?";
 const String strcommonTxt2 = "Do you have full UK driving licence?";
 const String strcommonTxt3 = "Do you smoke?";
-const String strcommonTxt4 = "Do you have issues working in homes with pets?";
-const String strcommonTxt5 = "Do you want to be matched with a buddy?";
+const String strcommonTxt4 =
+    "Do you have issues working in homes with pets?";
+const String strcommonTxt5 =
+    "Do you want to be matched with a buddy?";
 const String strAdditionalInformation = "Additional Information";
 const String strReferences = "References";
 const String strProfile = "Profile";
@@ -293,7 +323,8 @@ const String strPricePerHor = "£/hr";
 const String strTypeYourAddress = "Type your Address";
 const String strQualification = "Qualification";
 const String strSelect = "Select";
-const String strSelectPersonOccuption = "Select ref person occupation";
+const String strSelectPersonOccuption =
+    "Select ref person occupation";
 const String strDepression = "Depression";
 const String strDownSyndrome = "Down's syndrome";
 const String strEatingDisorder = "Eating disorders";
@@ -305,7 +336,8 @@ const String strMultiplesclerosis = "Multiple sclerosis";
 const String strOccupationaltherapy = "Occupational therapy";
 const String strPalliativecare = "Palliative care";
 const String strPEGfeeding = "PEG feeding";
-const String strPhysicaldisabilities = "Physical disabilities\n(children)";
+const String strPhysicaldisabilities =
+    "Physical disabilities\n(children)";
 const String strRespiratoryconditions = "Respiratory conditions";
 const String strSelfharm = "Self-harm";
 const String strStomacare = "Stoma care";
@@ -322,7 +354,8 @@ const String strEpilepsy = "Epilepsy";
 const String strIncontinence = "Incontinence";
 const String strLongcovid = "Longcovid";
 const String strMotorneuronedisease = "Motor neurone disease";
-const String strObsessivecompulsivedisorder = "Obsessive compulsive disorder";
+const String strObsessivecompulsivedisorder =
+    "Obsessive compulsive disorder";
 const String strOrthopaedicinjuries = "Orthopaedic injuries";
 const String strParkinsondisease = "Parkinson's disease";
 const String strPhysicialdisablities = "Physicial disablities";
@@ -331,7 +364,8 @@ const String strSchizophrenia = "Schizophrenia";
 const String strSpinalinjuries = "Spinal injuries";
 const String strStroke = "Stroke";
 const String strOk = "Ok";
-const String strVisualandhearingimpairments = "Visual and hearing impairments";
+const String strVisualandhearingimpairments =
+    "Visual and hearing impairments";
 const String strAgreeWithTerms = "I agree with all ";
 const String strConditions = "Terms & Conditions";
 const String strTermsAndConditions = "Terms and Conditions";
@@ -370,7 +404,8 @@ const String strHowYouKnow = "How do you know this person";
 const String strHowLongKnow = "How long you know this person";
 const String strCooking = "Cooking";
 const String strUploadReceipt = "Upload Receipt";
-const String strEatinganddrinkingassistance = "Eating and drinking assistance";
+const String strEatinganddrinkingassistance =
+    "Eating and drinking assistance";
 const String strHousekeeping = "Housekeeping";
 const String strMedicationprompting = "Medication prompting";
 const String strGardening = "Gardening";
@@ -380,7 +415,8 @@ const String strPersonalcare = "Personal care";
 const String strTransportation = "Transportation";
 const String strCompanionship = "Companionship";
 
-const String strWatchingTVshowsandmovies = "Watching TV shows and movies";
+const String strWatchingTVshowsandmovies =
+    "Watching TV shows and movies";
 const String strReading = "Reading";
 const String strSelectServiceRate =
     "Please select atleast one services and rates!";
@@ -400,8 +436,10 @@ const String strLanguage = "Language";
 const String strLearninganInstrument = "Learning an Instrument";
 
 const String strOnBoardingTitle1 = "Find carers in\nMinutes";
-const String strOnBoardingTitle2 = "In-depth insights to\ncarer profiles";
-const String strOnBoardingTitle3 = "Find jobs that fit\nyour lifestyle";
+const String strOnBoardingTitle2 =
+    "In-depth insights to\ncarer profiles";
+const String strOnBoardingTitle3 =
+    "Find jobs that fit\nyour lifestyle";
 const String strOnBoardingTitle4 = "Get paid more\nand quickly";
 const String strOnBoardingDescription =
     "Jointly is an innovative mobile and online app that is designed by carers for carers. Jointly makes caring easier.";
@@ -450,7 +488,8 @@ const String strCareRecipientAddress = "Care Recipient Address: ";
 const String strCareRecipientName = "Care Recipient Name: ";
 const String strServicesAlsoInclude = "Services also include: ";
 const String strGenerateInvoice = "Generate the 2nd Invoice";
-const String strServiceAgreementBetween = "Service Agreement Between ";
+const String strServiceAgreementBetween =
+    "Service Agreement Between ";
 const String strServiceAgreement = "Service Agreement";
 const String strBasedOnReviews = "Based on 23 reviews";
 const String strExcellent = "Excellent";
@@ -458,7 +497,8 @@ const String strAverage = "Average";
 const String strGood = "Good";
 const String strBelowAverage = "Below Average";
 const String strPoor = "Poor";
-const String strGenerateServiceAgreement = "Generate Service Agreement";
+const String strGenerateServiceAgreement =
+    "Generate Service Agreement";
 const String strLoremLipsum =
     "Really nice idea, this adds a little flavor to all those dummy-texts! I can recommend setting up keystrokes for this, it'll speed up the process a lot!";
 
@@ -536,7 +576,8 @@ const String strCountry = "Country";
 const String strCurrency = "Currency";
 const String strAccountStatus = "Account Status";
 const String strHolderName = "Account Holder Name";
-const String strFillOutForm = "Fill out the form to get help with\nyour quote.";
+const String strFillOutForm =
+    "Fill out the form to get help with\nyour quote.";
 const String strSetAvailability = "Set Availability";
 const String strTransactionHistory = "Transaction History";
 const String strMasterBrewHub = "Master Brew Hub";
@@ -576,7 +617,8 @@ const String strSleeping = "Sleeping";
 const String strWalking = "Walking";
 const String strTraining = "Training";
 const String strQualifications = "Qualifications";
-const String strHealthConditions = "Heath Condition and Confidence Level";
+const String strHealthConditions =
+    "Heath Condition and Confidence Level";
 const String strRecentTransaction = "Recent Transaction";
 const String strYesterdayTransaction = "Yesterday Transaction";
 const String strAddPaymentMethod = "Add payment method";
@@ -613,7 +655,8 @@ const String strPostAReview = 'Post a Review';
 const String strHowWasYourShift = 'How was your shift?';
 const String strReportIssue = 'Report issue';
 const String strCareToShareMore = 'Care to share more?';
-const String strHowWasYourOverallExpirence = 'How was your overall experience?';
+const String strHowWasYourOverallExpirence =
+    'How was your overall experience?';
 const String strInvoicesFor = 'Invoices for';
 const String strAddInvoices = 'Add Invoices';
 const String strCareReciept = 'Care Recipient';
@@ -624,3 +667,4 @@ const String strSelfemployed = "Self-employed";
 
 const String strClientemployed = "Client employed";
 const String strZipcareemployed = "Zipcare employed";
+const String strEnterDetail = "Please enter detail";

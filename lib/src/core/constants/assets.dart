@@ -142,3 +142,9 @@ const String otpIllus2 = "assets/icons/otp_illus2.png";
 const String icpin = "assets/icons/ic_pin.png";
 const String icUnlike = "assets/icons/ic_unlike.png";
 const String iclike = "assets/icons/ic_like.png";
+
+const String iclogo = "assets/icons/ic_logo.png";
+const String icdone = "assets/icons/ic_done.png";
+
+const String arrowUp = "assets/icons/arrowUp.png";
+const String reset = "assets/icons/reset.png";

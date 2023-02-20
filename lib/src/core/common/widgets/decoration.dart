@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zip_care/src/core/constants/colors.dart';
 import 'package:zip_care/src/core/constants/dimens.dart';
+import 'package:zip_care/src/core/constants/font_family.dart';
 
 textFieldDecoration({String hintText = ""}) {
   return InputDecoration(
@@ -23,3 +25,8 @@ textFieldDecoration({String hintText = ""}) {
           borderRadius: BorderRadius.circular(radius_15),
           borderSide: const BorderSide(color: AppColors.colorPink)));
 }
+
+TextStyle textDecoration = TextStyle(
+    fontFamily: FontFamily.lexendRegular,
+    color: AppColors.blueGreyColor,
+    fontSize: 15.sp);

@@ -3,6 +3,7 @@ import 'package:zip_care/src/core/constants/font_family.dart';
 
 class CommonText extends StatelessWidget {
   final String text;
+  final String fontFamily;
   final Color? color;
   final double? fontSize;
   final FontWeight? fontWeight;
@@ -18,7 +19,8 @@ class CommonText extends StatelessWidget {
       this.maxLines,
       this.textOverflow = TextOverflow.ellipsis,
       this.textAlign = TextAlign.center,
-      this.isBold = false})
+      this.isBold = false,
+      this.fontFamily = FontFamily.lexendRegular})
       : super(key: key);
 
   @override
@@ -28,7 +30,7 @@ class CommonText extends StatelessWidget {
         overflow: textOverflow,
         textAlign: textAlign,
         style: TextStyle(
-          fontFamily: FontFamily.lexendRegular,
+          fontFamily: fontFamily,
           color:
               color ?? Theme.of(context).textTheme.bodyLarge?.color,
           fontWeight: isBold

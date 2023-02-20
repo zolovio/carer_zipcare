@@ -1,11 +1,9 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:zip_care/src/core/constants/assets.dart';
 import 'package:zip_care/src/core/constants/colors.dart';
 import 'package:zip_care/src/core/constants/dimens.dart';
-
 import '../app_utils/textstyle.dart';
 import '../constants/strings.dart';
 import 'bounce_widget.dart';
@@ -25,7 +23,10 @@ Widget hGap(double width) => SizedBox(width: width);
 //     margin: EdgeInsets.symmetric(horizontal: margin_10, vertical: margin_20));
 
 setFileImage(
-    {required String url, double? height, double? width, double? radius}) {
+    {required String url,
+    double? height,
+    double? width,
+    double? radius}) {
   return ClipRRect(
     borderRadius: BorderRadius.circular(radius ?? 100),
     child: Image.file(File(url),
@@ -46,11 +47,14 @@ circleImageNetWork({imageurl, height, width, radius}) {
 }
 
 circleAssetImage(
-    {required String asset, double? height, double? width, double? radius}) {
+    {required String asset,
+    double? height,
+    double? width,
+    double? radius}) {
   return ClipRRect(
       borderRadius: BorderRadius.circular(radius ?? 100),
-      child:
-          imageAsset(asset, height: height, width: width, fit: BoxFit.contain));
+      child: imageAsset(asset,
+          height: height, width: width, fit: BoxFit.contain));
 }
 
 divider() {
@@ -68,14 +72,16 @@ verticalDivider() {
   );
 }
 
-backAppBar(context, {String? title, onPress, actions, height, backWidget}) =>
+backAppBar(context,
+        {String? title, onPress, actions, height, backWidget}) =>
     PreferredSize(
       preferredSize: Size.fromHeight(height ?? height_50),
       child: PhysicalModel(
         elevation: 0,
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
+          padding: const EdgeInsets.symmetric(
+              horizontal: 16.0, vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -205,9 +211,15 @@ backAppBar(context, {String? title, onPress, actions, height, backWidget}) =>
 // }
 
 personalInfoTopView(
-    {title, pageCount, hideBottomText, subTitle, subTap, titleColor}) {
+    {title,
+    pageCount,
+    hideBottomText,
+    subTitle,
+    subTap,
+    titleColor}) {
   return Padding(
-    padding: EdgeInsets.symmetric(vertical: height_5, horizontal: margin_0),
+    padding: EdgeInsets.symmetric(
+        vertical: height_5, horizontal: margin_0),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -224,7 +236,9 @@ personalInfoTopView(
                 fontsize: font_18,
               ),
             ),
-            hideBottomText == null ? vGap(height_10) : emptyContainer(),
+            hideBottomText == null
+                ? vGap(height_10)
+                : emptyContainer(),
             hideBottomText == null
                 ? Text.rich(
                     TextSpan(text: pageCount ?? "", children: [
@@ -253,8 +267,8 @@ personalInfoTopView(
                   // Get.offAllNamed(Routes.mainScreenRoute);
                 },
           child: Container(
-            padding:
-                EdgeInsets.symmetric(vertical: margin_5, horizontal: margin_5),
+            padding: EdgeInsets.symmetric(
+                vertical: margin_5, horizontal: margin_5),
             child: Text(
               subTitle ?? strSkip,
               style: textStyleBold(
@@ -277,7 +291,11 @@ emptyContainer() {
 }
 
 Widget headingFormText(
-    {title, String star = '', fontSize, textColor, FontWeight? fontWeight}) {
+    {title,
+    String star = '',
+    fontSize,
+    textColor,
+    FontWeight? fontWeight}) {
   return CommonText("$title$star",
       fontSize: fontSize,
       color: textColor,
@@ -364,7 +382,10 @@ radioTitleText({tick, title, onTap, textColor, hideCheckBox}) {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         hideCheckBox == null
-            ? imageAsset(tick == true ? iconSelectedRadio : iconUnSelectedRadio,
+            ? imageAsset(
+                tick == true
+                    ? iconSelectedRadio
+                    : iconUnSelectedRadio,
                 height: height_20)
             : SizedBox(),
         hideCheckBox == null ? hGap(width_5) : SizedBox(),
@@ -406,10 +427,13 @@ checkTitleTextTitle({tick, title, onTap, textColor, hideCheckBox}) {
       hideCheckBox == null
           ? InkWell(
               onTap: onTap,
-              child: imageAsset(tick == true ? tickedImage : unTickedImage,
+              child: imageAsset(
+                  tick == true ? tickedImage : unTickedImage,
                   height: height_15))
           : SizedBox(width: 0, height: 0),
-      hideCheckBox == null ? hGap(width_5) : Container(width: 0, height: 0),
+      hideCheckBox == null
+          ? hGap(width_5)
+          : Container(width: 0, height: 0),
       CommonText(title,
           fontWeight: FontWeight.w500,
           textAlign: TextAlign.start,
@@ -558,7 +582,9 @@ _gridView({list, value = false}) {
                     color: AppColors.lightPinkColor,
                     borderRadius: BorderRadius.circular(radius_15)),
                 child: CommonText(
-                  value == true ? list[index] : list[index].title ?? "",
+                  value == true
+                      ? list[index]
+                      : list[index].title ?? "",
                   fontSize: font_10,
                   color: AppColors.blackColor,
                 ),
@@ -598,7 +624,8 @@ smallButton(
   );
 }
 
-headContainer({title, titleColor, subTitle, subColor, hideContainer}) {
+headContainer(
+    {title, titleColor, subTitle, subColor, hideContainer}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -631,13 +658,15 @@ headContainer({title, titleColor, subTitle, subColor, hideContainer}) {
                         CommonText(strHandlingAbility,
                             fontWeight: FontWeight.w500,
                             textAlign: TextAlign.start,
-                            color: titleColor ?? AppColors.blueGreyColor,
+                            color:
+                                titleColor ?? AppColors.blueGreyColor,
                             fontSize: font_14),
                         vGap(height_5),
                         CommonText(subTitle,
                             fontWeight: FontWeight.w500,
                             textAlign: TextAlign.start,
-                            color: subColor ?? AppColors.blueGreyColor,
+                            color:
+                                subColor ?? AppColors.blueGreyColor,
                             maxLines: 2,
                             fontSize: font_11),
                       ],
@@ -669,7 +698,8 @@ String? dateIntoFormated({String? dateString}) {
   return null;
 }
 
-clickableIcon({required String icon, required double iconSize, onTap}) {
+clickableIcon(
+    {required String icon, required double iconSize, onTap}) {
   return BouncingWidget(
       onPressed: onTap, child: imageAsset(icon, width: margin_20));
 }
@@ -734,7 +764,8 @@ class SelectedAvailability {
   bool iconSelected = false;
   List<SelectedIcon>? timeList = [];
 
-  SelectedAvailability({this.title, this.iconSelected = false, this.timeList});
+  SelectedAvailability(
+      {this.title, this.iconSelected = false, this.timeList});
 }
 
 // void launchUrlW({@required url}) async {
@@ -751,8 +782,14 @@ todayDateFormat(date) {
   return DateFormat("yyyy-MM-dd HH:mm:ss").parse(date).toUtc();
 }
 
-dateFormat(date) {
-  return DateFormat("yyyy-MM-dd").parse(date);
+dateFormat(DateTime date) {
+  return DateFormat("yyyy-MM-dd");
+}
+
+dayFormat(date) {
+  // return DateFormat("dddd-MM-yy").parse(date);
+
+  return DateFormat("EEEE, MMM yyyy").format(date.toLocal());
 }
 
 localFullDateFormat(date) {
@@ -771,22 +808,27 @@ timeFormat(date) {
 }
 
 timeOnlyFormat(date) {
-  return DateFormat("hh:mm a").format(DateFormat("HH:mm:ss").parse(date, true));
+  return DateFormat("hh:mm a")
+      .format(DateFormat("HH:mm:ss").parse(date, true));
 }
 
 localFullTimeFormat(date) {
-  return DateFormat("hh:mm a")
-      .format(DateFormat("yyyy-MM-dd HH:mm:ss").parse(date, true).toLocal());
+  return DateFormat("hh:mm a").format(
+      DateFormat("yyyy-MM-dd HH:mm:ss").parse(date, true).toLocal());
 }
 
 localFullDateTimeFormat(date) {
-  return DateFormat("dd-MM-yyyy hh:mm a")
-      .format(DateFormat("yyyy-MM-dd HH:mm:ss").parse(date, true).toLocal());
+  return DateFormat("dd-MM-yyyy hh:mm a").format(
+      DateFormat("yyyy-MM-dd HH:mm:ss").parse(date, true).toLocal());
 }
 
 hourlyFormat(time) {
-  return DateFormat("HH:mm").format(DateTime(DateTime.now().year,
-      DateTime.now().month, DateTime.now().day, time.hour, time.minute));
+  return DateFormat("HH:mm").format(DateTime(
+      DateTime.now().year,
+      DateTime.now().month,
+      DateTime.now().day,
+      time.hour,
+      time.minute));
 }
 
 timedate(String date) {
@@ -874,10 +916,12 @@ getDateWithDay({stringPath}) {
 //   );
 // }
 
-String timeAgoSinceDateO(String dateString, {bool numericDates = true}) {
+String timeAgoSinceDateO(String dateString,
+    {bool numericDates = true}) {
   if (dateString != null) {
-    var datetime =
-        DateFormat("yyyy-MM-dd HH:mm:ss").parse(dateString, true).toLocal();
+    var datetime = DateFormat("yyyy-MM-dd HH:mm:ss")
+        .parse(dateString, true)
+        .toLocal();
     return DateFormat('hh:mm a').format(datetime.toLocal());
   } else {
     return "";
