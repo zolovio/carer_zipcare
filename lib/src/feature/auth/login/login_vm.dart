@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zip_care/src/feature/home/bottom_bar.dart';
 
-final loginVmProvider = ChangeNotifierProvider.autoDispose<LoginVm>((ref) {
+final loginVmProvider =
+    ChangeNotifierProvider.autoDispose<LoginVm>((ref) {
   return LoginVm();
 });
 
@@ -112,8 +114,10 @@ class LoginVm extends ChangeNotifier {
     notifyListeners();
   }
 
-  void onLogin() {
+  void onLogin(context) {
     print("OK");
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => BottomBar()));
     notifyListeners();
   }
 }
