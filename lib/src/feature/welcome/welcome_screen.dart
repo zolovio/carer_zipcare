@@ -179,7 +179,7 @@ class WelcomeScreens extends StatelessWidget {
   _image(index, WelcomeVm vm) {
     return Image.asset(
       '${vm.selectData[index].image}',
-      scale: 3.8,
+      height: height_30,
     );
   }
 }
