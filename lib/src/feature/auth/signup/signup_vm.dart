@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:zip_care/src/feature/auth/phoneVerification/phoneVerificationScreen.dart';
-import 'package:zip_care/src/feature/auth/registration/personalInfo/personalInfoScreen.dart';
+import 'package:zip_care/src/feature/auth/phone_verification/phone_verification_screen.dart';
 
 final signVmProvider =
     ChangeNotifierProvider.autoDispose<SignUpVm>((ref) {

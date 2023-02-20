@@ -9,7 +9,6 @@ import 'package:zip_care/src/core/constants/strings.dart';
 import 'package:zip_care/src/core/ui_component/common_text.dart';
 import 'package:zip_care/src/feature/auth/login/login_screen.dart';
 import 'package:zip_care/src/feature/auth/signup/signup_vm.dart';
-
 import '../../../core/constants/colors.dart';
 import '../../../core/ui_component/common_app_bar_with_back.dart';
 
@@ -47,7 +46,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: FormBuilder(
             key: formKey,
             child: Column(children: [
-              CommonAppBarWithBack(title: "Sign up", isBackActive: true),
+              CommonAppBarWithBack(
+                  title: "Sign up", isBackActive: true),
               SizedBox(height: size.height * 0.1),
               CommonTextFiled(
                   controller: fNameController,
@@ -59,16 +59,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ])),
               SizedBox(height: 20.h),
               CommonTextFiled(
-                controller: lNameController,
-                hintText: strLastName,
-                name: strLastName,
-                keyboardType: TextInputType.name,
-                validator: FormBuilderValidators.compose(
-                  [
+                  controller: lNameController,
+                  hintText: strLastName,
+                  name: strLastName,
+                  keyboardType: TextInputType.name,
+                  validator: FormBuilderValidators.compose([
                     FormBuilderValidators.required(),
-                  ],
-                ),
-              ),
+                  ])),
               SizedBox(height: 20.h),
               CommonTextFiled(
                   controller: phoneNumberController,
@@ -109,7 +106,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           color: AppColors.colorGrey))),
               SizedBox(height: 20.h),
               Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(children: [
                     InkWell(
                         onTap: () {
@@ -155,7 +153,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginScreen()));
+                                  builder: (context) =>
+                                      LoginScreen()));
                           // _vm.clearEditTextController();
                         },
                         child: CommonText("Sign in",
