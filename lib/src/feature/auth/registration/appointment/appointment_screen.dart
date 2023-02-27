@@ -28,102 +28,102 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(appointmentVmProvider);
       return Scaffold(
-          body: SafeArea(
-              child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: FormBuilder(
-              key: formKey,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CommonAppBarWithBack(
-                        isSkip: true,
-                        onSkip: () {
-                          _vm.onNext(context);
-                        },
-                        title: strAppointment,
-                        isBackActive: true),
-                    PageNumber(
-                        no: "9", noColor: AppColors.darkPinkColor),
-                    SizedBox(height: size.height * 0.05),
-                    Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CommonText(
-                            strAppointmentforIDverification,
-                            fontSize: 15)),
-                    Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CommonText(strSelectaDateTime,
-                            fontSize: 15)),
-                    SizedBox(height: 20.h),
-                    TableCalendar(
-                      onDaySelected: (a, b) => _vm.setDate(b),
-                      calendarFormat: CalendarFormat.week,
-                      firstDay: DateTime.utc(2010, 10, 16),
-                      lastDay: DateTime.utc(2030, 3, 14),
-                      focusedDay: _vm.day,
-                      selectedDayPredicate: (day) {
-                        return isSameDay(_vm.day, day);
-                      },
-                    ),
-                    SizedBox(height: 20.h),
-                    CommonText("${dayFormat(_vm.day)}"),
-                    SizedBox(height: 20.h),
-                    CommonText(strSelectyourslots),
-                    SizedBox(height: 20.h),
-                    GridView.builder(
-                      shrinkWrap: true,
-                      itemCount: _vm.slotList.length,
-                      gridDelegate:
-                          SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 200.0,
-                              mainAxisSpacing: 10.0,
-                              crossAxisSpacing: 10.0,
-                              childAspectRatio: 4.0),
-                      itemBuilder: (BuildContext context, int i) {
-                        var item = _vm.slotList[i];
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0),
-                          child: GestureDetector(
+          appBar: CommonAppBarWithBack(
+              isSkip: true,
+              onSkip: () {
+                _vm.onNext(context);
+              },
+              title: strAppointment,
+              isBackActive: true),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: FormBuilder(
+                  key: formKey,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        PageNumber(
+                            no: "9",
+                            noColor: AppColors.darkPinkColor),
+                        SizedBox(height: size.height * 0.05),
+                        Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CommonText(
+                                strAppointmentforIDverification,
+                                fontSize: 15)),
+                        Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CommonText(strSelectaDateTime,
+                                fontSize: 15)),
+                        SizedBox(height: 20.h),
+                        TableCalendar(
+                          onDaySelected: (a, b) => _vm.setDate(b),
+                          calendarFormat: CalendarFormat.week,
+                          firstDay: DateTime.utc(2010, 10, 16),
+                          lastDay: DateTime.utc(2030, 3, 14),
+                          focusedDay: _vm.day,
+                          selectedDayPredicate: (day) {
+                            return isSameDay(_vm.day, day);
+                          },
+                        ),
+                        SizedBox(height: 20.h),
+                        CommonText("${dayFormat(_vm.day)}"),
+                        SizedBox(height: 20.h),
+                        CommonText(strSelectyourslots),
+                        SizedBox(height: 20.h),
+                        GridView.builder(
+                          shrinkWrap: true,
+                          itemCount: _vm.slotList.length,
+                          gridDelegate:
+                              SliverGridDelegateWithMaxCrossAxisExtent(
+                                  maxCrossAxisExtent: 200.0,
+                                  mainAxisSpacing: 10.0,
+                                  crossAxisSpacing: 10.0,
+                                  childAspectRatio: 4.0),
+                          itemBuilder: (BuildContext context, int i) {
+                            var item = _vm.slotList[i];
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  _vm.setSlot(item);
+                                },
+                                child: Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      color: _vm.selectedSlot == item
+                                          ? AppColors.darkPinkColor
+                                          : Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(32),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color(0x2d000000),
+                                            blurRadius: 5,
+                                            offset: Offset(0, 2))
+                                      ],
+                                    ),
+                                    child: Text(item)),
+                              ),
+                            );
+                          },
+                        ),
+                        SizedBox(height: 50.h),
+                        CommonNextButtonWidget(
                             onTap: () {
-                              _vm.setSlot(item);
+                              // if (formKey.currentState!
+                              //     .validate()) {
+                              _vm.onNext(context);
+                              // }
                             },
-                            child: Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: _vm.selectedSlot == item
-                                      ? AppColors.darkPinkColor
-                                      : Colors.white,
-                                  borderRadius:
-                                      BorderRadius.circular(32),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Color(0x2d000000),
-                                        blurRadius: 5,
-                                        offset: Offset(0, 2))
-                                  ],
-                                ),
-                                child: Text(item)),
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(height: 50.h),
-                    CommonNextButtonWidget(
-                        onTap: () {
-                          // if (formKey.currentState!
-                          //     .validate()) {
-                          _vm.onNext(context);
-                          // }
-                        },
-                        icon: Icons.save,
-                        text: strSave),
-                    SizedBox(height: 20.h)
-                  ])),
-        ),
-      )));
+                            icon: Icons.save,
+                            text: strSave),
+                        SizedBox(height: 20.h)
+                      ])),
+            ),
+          ));
     });
   }
 }

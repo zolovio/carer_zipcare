@@ -18,10 +18,10 @@ class CommonChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onDeleted?.call();
+        onDeleted!();
       },
       child: Chip(
-          padding: const EdgeInsets.all(5),
+          padding: EdgeInsets.all(5),
           backgroundColor: color,
           label: CommonText(text, fontSize: 12, color: textColor)),
     );

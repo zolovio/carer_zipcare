@@ -4,8 +4,11 @@ import 'package:zip_care/src/core/constants/colors.dart';
 import 'package:zip_care/src/core/constants/dimens.dart';
 import 'package:zip_care/src/core/constants/font_family.dart';
 
-textFieldDecoration({String hintText = ""}) {
+textFieldDecoration(
+    {String hintText = "", suffix = null, prefix = null}) {
   return InputDecoration(
+      suffixIcon: suffix,
+      prefixIcon: prefix,
       hintText: hintText,
       border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radius_15),

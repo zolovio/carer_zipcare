@@ -10,6 +10,7 @@ class CommonTextFiled extends StatelessWidget {
   final String hintText;
   final TextEditingController? controller;
   final Widget suffixIcon;
+  final Widget? prefixIcon;
   final bool obscureText;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
@@ -17,6 +18,7 @@ class CommonTextFiled extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final bool isEnabled;
   final int maxLine;
+  final Color? fillColor;
 
   const CommonTextFiled(
       {super.key,
@@ -26,11 +28,13 @@ class CommonTextFiled extends StatelessWidget {
       required this.name,
       required this.validator,
       this.suffixIcon = const SizedBox(),
+      this.prefixIcon,
       this.obscureText = false,
       this.keyboardType = TextInputType.emailAddress,
       this.textInputAction = TextInputAction.next,
       this.inputFormatters,
-      this.isEnabled = true});
+      this.isEnabled = true,
+      this.fillColor});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +45,10 @@ class CommonTextFiled extends StatelessWidget {
         obscureText: obscureText,
         inputFormatters: inputFormatters,
         decoration: InputDecoration(
+            fillColor: fillColor ?? null,
+            filled: fillColor != null,
             suffixIcon: suffixIcon,
+            prefixIcon: prefixIcon ?? null,
             hintText: hintText,
             hintStyle:
                 TextStyle(fontFamily: FontFamily.lexendRegular),

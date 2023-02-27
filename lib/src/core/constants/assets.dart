@@ -142,9 +142,19 @@ const String otpIllus2 = "assets/icons/otp_illus2.png";
 const String icpin = "assets/icons/ic_pin.png";
 const String icUnlike = "assets/icons/ic_unlike.png";
 const String iclike = "assets/icons/ic_like.png";
-
 const String iclogo = "assets/icons/ic_logo.png";
 const String icdone = "assets/icons/ic_done.png";
-
+const String error = "assets/icons/errorr.png";
 const String arrowUp = "assets/icons/arrowUp.png";
 const String reset = "assets/icons/reset.png";
+const String icSq = "assets/icons/ic_sq.png";
+const String delete = "assets/icons/delete.png";
+
+const String bank = "assets/icons/bank.png";
+
+const String passwordChanged = "assets/icons/passwordChanged.png";
+const String dp = "assets/icons/dp.png";
+
+const String save = "assets/icons/save.png";
+
+const String addInvoice = "assets/icons/addInvoice.png";

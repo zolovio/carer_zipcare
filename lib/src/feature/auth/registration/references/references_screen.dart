@@ -28,110 +28,114 @@ class _ReferencesScreenState extends State<ReferencesScreen> {
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(referencesVmProvider);
       return Scaffold(
-          body: SafeArea(
-              child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: FormBuilder(
-              key: formKey,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CommonAppBarWithBack(
-                        isSkip: true,
-                        onSkip: () {
-                          _vm.onNext(context);
-                        },
-                        title: strReferences,
-                        isBackActive: true),
-                    PageNumber(no: "6"),
-                    SizedBox(height: size.height * 0.05),
-                    ListView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: _vm.refList.length,
-                        itemBuilder: (BuildContext context, int i) {
-                          var item = _vm.refList[i];
-                          return Column(
-                            crossAxisAlignment:
-                                CrossAxisAlignment.start,
-                            children: [
-                              CommonText(item.title,
-                                  textAlign: TextAlign.start,
-                                  fontSize: 15),
-                              SizedBox(height: 10.h),
-                              CommonText(item.subTitle,
-                                  maxLines: 2,
-                                  textAlign: TextAlign.start,
-                                  fontSize: 14,
-                                  color: AppColors.blueGreyColor),
-                              SizedBox(height: 15.h),
-                              CommonTextFiled(
-                                  controller: item.name,
-                                  hintText: strNameReference,
-                                  name: item.title,
-                                  validator: null),
-                              SizedBox(height: 10.h),
-                              CommonTextFiled(
-                                  controller: item.email,
-                                  hintText: strEmailAddress,
-                                  name: item.title,
-                                  validator: null),
-                              SizedBox(height: 10.h),
-                              CommonTextFiled(
-                                  controller: item.phone,
-                                  hintText: strContactNumber,
-                                  name: item.title,
-                                  validator: null),
-                              SizedBox(height: 10.h),
-                              CommonTextFiled(
-                                  controller: item.address,
-                                  hintText: strAddress,
-                                  name: item.title,
-                                  validator: null),
-                              SizedBox(height: 10.h),
-                              FormBuilderDropdown<String>(
-                                  decoration: textFieldDecoration(
-                                      hintText: strHowYouKnow),
-                                  name: strSelectRefOccupation,
-                                  validator: null,
-                                  items: ['College', 'Friend']
-                                      .map((v) => DropdownMenuItem(
-                                          value: v, child: Text(v)))
-                                      .toList(),
-                                  onChanged: (val) =>
-                                      _vm.setRef(i, val!)),
-                              SizedBox(height: 10.h),
-                              FormBuilderDropdown<String>(
-                                  decoration: textFieldDecoration(
-                                      hintText:
-                                          strSelectHowLongYouKnow),
-                                  name: strHowLongKnow,
-                                  validator: null,
-                                  items: ['1 year', '2 year']
-                                      .map((v) => DropdownMenuItem(
-                                          value: v, child: Text(v)))
-                                      .toList(),
-                                  onChanged: (val) => _vm.setRef(
-                                      i, val!,
-                                      isRelation: false)),
-                              SizedBox(height: 20.h)
-                            ],
-                          );
-                        }),
-                    SizedBox(height: 20.h),
-                    CommonNextButtonWidget(
-                        onTap: () {
-                          // if (formKey.currentState!
-                          //     .validate()) {
-                          _vm.onNext(context);
-                          // }
-                        },
-                        text: strNext),
-                    SizedBox(height: 20.h)
-                  ])),
-        ),
-      )));
+          appBar: CommonAppBarWithBack(
+              isSkip: true,
+              onSkip: () {
+                _vm.onNext(context);
+              },
+              title: strReferences,
+              isBackActive: true),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: FormBuilder(
+                  key: formKey,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        PageNumber(no: "6"),
+                        SizedBox(height: size.height * 0.05),
+                        ListView.builder(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: _vm.refList.length,
+                            itemBuilder:
+                                (BuildContext context, int i) {
+                              var item = _vm.refList[i];
+                              return Column(
+                                crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                children: [
+                                  CommonText(item.title,
+                                      textAlign: TextAlign.start,
+                                      fontSize: 15),
+                                  SizedBox(height: 10.h),
+                                  CommonText(item.subTitle,
+                                      maxLines: 2,
+                                      textAlign: TextAlign.start,
+                                      fontSize: 14,
+                                      color: AppColors.blueGreyColor),
+                                  SizedBox(height: 15.h),
+                                  CommonTextFiled(
+                                      controller: item.name,
+                                      hintText: strNameReference,
+                                      name: item.title,
+                                      validator: null),
+                                  SizedBox(height: 10.h),
+                                  CommonTextFiled(
+                                      controller: item.email,
+                                      hintText: strEmailAddress,
+                                      name: item.title,
+                                      validator: null),
+                                  SizedBox(height: 10.h),
+                                  CommonTextFiled(
+                                      controller: item.phone,
+                                      hintText: strContactNumber,
+                                      name: item.title,
+                                      validator: null),
+                                  SizedBox(height: 10.h),
+                                  CommonTextFiled(
+                                      controller: item.address,
+                                      hintText: strAddress,
+                                      name: item.title,
+                                      validator: null),
+                                  SizedBox(height: 10.h),
+                                  FormBuilderDropdown<String>(
+                                      decoration: textFieldDecoration(
+                                          hintText: strHowYouKnow),
+                                      name: strSelectRefOccupation,
+                                      validator: null,
+                                      items: ['College', 'Friend']
+                                          .map((v) =>
+                                              DropdownMenuItem(
+                                                  value: v,
+                                                  child: Text(v)))
+                                          .toList(),
+                                      onChanged: (val) =>
+                                          _vm.setRef(i, val!)),
+                                  SizedBox(height: 10.h),
+                                  FormBuilderDropdown<String>(
+                                      decoration: textFieldDecoration(
+                                          hintText:
+                                              strSelectHowLongYouKnow),
+                                      name: strHowLongKnow,
+                                      validator: null,
+                                      items: ['1 year', '2 year']
+                                          .map((v) =>
+                                              DropdownMenuItem(
+                                                  value: v,
+                                                  child: Text(v)))
+                                          .toList(),
+                                      onChanged: (val) => _vm.setRef(
+                                          i, val!,
+                                          isRelation: false)),
+                                  SizedBox(height: 20.h)
+                                ],
+                              );
+                            }),
+                        SizedBox(height: 20.h),
+                        CommonNextButtonWidget(
+                            onTap: () {
+                              // if (formKey.currentState!
+                              //     .validate()) {
+                              _vm.onNext(context);
+                              // }
+                            },
+                            text: strNext),
+                        SizedBox(height: 20.h)
+                      ])),
+            ),
+          ));
     });
   }
 }

@@ -18,90 +18,79 @@ class HomeScreen extends StatelessWidget {
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(homeVmProvider);
       return Scaffold(
-          body: SafeArea(
-              child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: SingleChildScrollView(
-                    child: Column(children: [
-                      Padding(
-                          padding: EdgeInsets.symmetric(vertical: 15),
-                          child: CommonAppBarWithBack(
-                              isOffline: true,
-                              logo: true,
-                              nofi: true)),
-                      TextField(
-                          decoration: InputDecoration(
-                              constraints:
-                                  BoxConstraints.tightFor(height: 50),
-                              hintText: strSearch,
-                              hintStyle:
-                                  textStyleNormal(fontsize: 15),
-                              suffixIcon: IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(Icons.search,
-                                      color: AppColors.colorGrey)),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                      width: 1,
-                                      color: AppColors
-                                          .lightGreyColor)))),
-                      SizedBox(height: 15.h),
-                      Container(
-                          height: height_30,
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              scrollDirection: Axis.horizontal,
-                              itemCount: _vm.topList.length,
-                              itemBuilder:
-                                  (BuildContext context, int i) {
-                                var list = _vm.topList[i];
-                                return Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 5),
-                                    child: TopFilter(
-                                        text: list["name"]!));
-                              })),
-                      SizedBox(height: 20.h),
-                      Row(children: [
-                        Container(
-                            decoration: BoxDecoration(
-                                color: AppColors.whiteColor,
-                                borderRadius:
-                                    BorderRadius.circular(8),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: AppColors
-                                          .blueGreyLightColor,
-                                      offset: Offset(2, 2),
-                                      blurRadius: 10.0,
-                                      spreadRadius: 2.0)
-                                ]),
-                            child: Padding(
-                                padding: EdgeInsets.all(8),
-                                child: Center(
-                                    child: CommonText("Filter",
-                                        fontSize: 14)))),
-                        SizedBox(width: width_10),
-                        Text(_vm.jobs["availableJobs"],
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15))
-                      ]),
-                      SizedBox(height: height_10),
-                      ListView.builder(
+          appBar: CommonAppBarWithBack(
+              isOffline: true, logo: true, nofi: true),
+          body: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: SingleChildScrollView(
+                child: Column(children: [
+                  TextField(
+                      decoration: InputDecoration(
+                          constraints:
+                              BoxConstraints.tightFor(height: 50),
+                          hintText: strSearch,
+                          hintStyle: textStyleNormal(fontsize: 15),
+                          suffixIcon: IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.search,
+                                  color: AppColors.colorGrey)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                  width: 1,
+                                  color: AppColors.lightGreyColor)))),
+                  SizedBox(height: 15.h),
+                  Container(
+                      height: height_30,
+                      child: ListView.builder(
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
                           itemCount: _vm.topList.length,
                           itemBuilder: (BuildContext context, int i) {
+                            var list = _vm.topList[i];
                             return Padding(
-                                padding: EdgeInsets.only(bottom: 15),
-                                child: JobCard());
-                          })
-                    ]),
-                  ))));
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 5),
+                                child:
+                                    TopFilter(text: list["name"]!));
+                          })),
+                  SizedBox(height: 20.h),
+                  Row(children: [
+                    Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.whiteColor,
+                            borderRadius: BorderRadius.circular(8),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: AppColors.blueGreyLightColor,
+                                  offset: Offset(2, 2),
+                                  blurRadius: 10.0,
+                                  spreadRadius: 2.0)
+                            ]),
+                        child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Center(
+                                child: CommonText("Filter",
+                                    fontSize: 14)))),
+                    SizedBox(width: width_10),
+                    Text(_vm.jobs["availableJobs"],
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15))
+                  ]),
+                  SizedBox(height: height_10),
+                  ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: _vm.topList.length,
+                      itemBuilder: (BuildContext context, int i) {
+                        return Padding(
+                            padding: EdgeInsets.only(bottom: 15),
+                            child: JobCard());
+                      })
+                ]),
+              )));
     });
   }
 }

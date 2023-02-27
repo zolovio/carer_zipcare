@@ -11,6 +11,7 @@ class CommonText extends StatelessWidget {
   final TextOverflow? textOverflow;
   final TextAlign? textAlign;
   final bool isBold;
+  final double? height;
   const CommonText(this.text,
       {Key? key,
       this.color,
@@ -20,6 +21,7 @@ class CommonText extends StatelessWidget {
       this.textOverflow = TextOverflow.ellipsis,
       this.textAlign = TextAlign.center,
       this.isBold = false,
+      this.height,
       this.fontFamily = FontFamily.lexendRegular})
       : super(key: key);
 
@@ -30,6 +32,7 @@ class CommonText extends StatelessWidget {
         overflow: textOverflow,
         textAlign: textAlign,
         style: TextStyle(
+          height: height,
           fontFamily: fontFamily,
           color:
               color ?? Theme.of(context).textTheme.bodyLarge?.color,

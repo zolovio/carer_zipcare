@@ -25,37 +25,36 @@ class _SearchAddressScreenState extends State<SearchAddressScreen> {
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(searchAddressVmProvider);
       return Scaffold(
-          body: SafeArea(
-              child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: FormBuilder(
-              key: formKey,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CommonAppBarWithBack(
-                        isSkip: true,
-                        onSkip: () {
-                          _vm.onNext(context);
-                        },
-                        title: strSearchYourAddress,
-                        isBackActive: true),
-                    SizedBox(height: size.height * 0.1),
-                    CommonTextFiled(
-                        controller: _vm.searchAddress,
-                        hintText: strSearchAddress,
-                        name: strSearchAddress,
-                        validator: FormBuilderValidators.compose([
-                          FormBuilderValidators.required(),
-                        ]),
-                        suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.search,
-                                color: AppColors.colorGrey))),
-                  ])),
-        ),
-      )));
+          appBar: CommonAppBarWithBack(
+              isSkip: true,
+              onSkip: () {
+                _vm.onNext(context);
+              },
+              title: strSearchYourAddress,
+              isBackActive: true),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: FormBuilder(
+                  key: formKey,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: size.height * 0.1),
+                        CommonTextFiled(
+                            controller: _vm.searchAddress,
+                            hintText: strSearchAddress,
+                            name: strSearchAddress,
+                            validator: FormBuilderValidators.compose([
+                              FormBuilderValidators.required(),
+                            ]),
+                            suffixIcon: IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.search,
+                                    color: AppColors.colorGrey))),
+                      ])),
+            ),
+          ));
     });
   }
 }

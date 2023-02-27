@@ -31,7 +31,7 @@ class JobCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CommonText("$strJobIds ${_vm.jobs["jobId"]}",
-                        fontSize: 13),
+                        fontSize: font_13),
                     SizedBox(height: height_10),
                     Row(children: [
                       CircleAvatar(
@@ -57,7 +57,7 @@ class JobCard extends StatelessWidget {
                                     SizedBox(width: width_5),
                                     CommonText(
                                         "${_vm.jobs["year"]}yr",
-                                        fontSize: 13,
+                                        fontSize: font_13,
                                         color: AppColors.colorGrey),
                                     SizedBox(width: width_10),
                                     Row(children: [
@@ -65,7 +65,7 @@ class JobCard extends StatelessWidget {
                                           height: height_15),
                                       SizedBox(width: width_5),
                                       CommonText(_vm.jobs["location"],
-                                          fontSize: 13,
+                                          fontSize: font_13,
                                           color: AppColors.colorGrey)
                                     ]),
                                     SizedBox(width: width_10),
@@ -74,7 +74,7 @@ class JobCard extends StatelessWidget {
                                           height: height_15),
                                       SizedBox(width: width_5),
                                       CommonText(_vm.jobs["hour"],
-                                          fontSize: 13,
+                                          fontSize: font_13,
                                           color: AppColors.colorGrey)
                                     ])
                                   ])

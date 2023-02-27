@@ -52,6 +52,7 @@ dependencies:
   form_builder_validators: ^8.4.0
   pin_code_fields: ^7.4.0
   table_calendar:
+  flutter_rating_bar:
 
 dev_dependencies:
   flutter_test:

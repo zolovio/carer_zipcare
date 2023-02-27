@@ -3,7 +3,8 @@ import 'package:zip_care/src/core/constants/assets.dart';
 import 'package:zip_care/src/core/constants/colors.dart';
 import 'package:zip_care/src/core/constants/dimens.dart';
 import 'package:zip_care/src/core/constants/font_family.dart';
-import 'package:zip_care/src/core/constants/strings.dart';
+import 'package:zip_care/src/feature/home/account/account_screen.dart';
+import 'package:zip_care/src/feature/home/chat/chat_screen.dart';
 import 'package:zip_care/src/feature/home/home/home_screen.dart';
 import 'package:zip_care/src/feature/home/job/job_screen.dart';
 
@@ -18,9 +19,9 @@ class _Home extends State<BottomBar> {
   static const List _list = [
     HomeScreen(),
     JobScreen(),
-    Text("data"),
-    Text("data"),
-    Text("data"),
+    ChatScreen(),
+    Text("Timesheet"),
+    AccountScreen(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -52,7 +53,7 @@ class _Home extends State<BottomBar> {
                                   padding: EdgeInsets.all(10),
                                   child: Image.asset(homeUnImage,
                                       height: height_25)))),
-                      label: strHome),
+                      label: "Home"),
                   BottomNavigationBarItem(
                       icon: Padding(
                           padding: EdgeInsets.only(top: 0),
@@ -67,7 +68,7 @@ class _Home extends State<BottomBar> {
                                   padding: EdgeInsets.all(10),
                                   child: Image.asset(jobUnImage,
                                       height: height_25)))),
-                      label: strJobs),
+                      label: "Jobs"),
                   BottomNavigationBarItem(
                       icon: Padding(
                           padding: EdgeInsets.only(top: 0),
@@ -82,7 +83,7 @@ class _Home extends State<BottomBar> {
                                   padding: EdgeInsets.all(12),
                                   child: Image.asset(chatUnImage,
                                       height: height_25)))),
-                      label: strChat),
+                      label: "Chat"),
                   BottomNavigationBarItem(
                       icon: Padding(
                           padding: EdgeInsets.only(top: 0),
@@ -98,7 +99,7 @@ class _Home extends State<BottomBar> {
                                   child: Image.asset(
                                       timesheetUnSelectedImage,
                                       height: height_25)))),
-                      label: strTimesheet),
+                      label: "Timesheet"),
                   BottomNavigationBarItem(
                       icon: Padding(
                           padding: EdgeInsets.only(top: 0),
@@ -113,7 +114,7 @@ class _Home extends State<BottomBar> {
                                   padding: EdgeInsets.all(10),
                                   child: Image.asset(accountUnImage,
                                       height: height_22)))),
-                      label: strAccount)
+                      label: "Account")
                 ],
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: AppColors.whiteColor,

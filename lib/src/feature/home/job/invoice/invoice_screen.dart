@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zip_care/src/core/constants/assets.dart';
 import 'package:zip_care/src/core/constants/colors.dart';
 import 'package:zip_care/src/core/constants/dimens.dart';
 import 'package:zip_care/src/core/constants/font_family.dart';
 import 'package:zip_care/src/core/ui_component/common_app_bar_with_back.dart';
 import 'package:zip_care/src/core/ui_component/common_text.dart';
+import 'package:zip_care/src/feature/home/job/add_invoice/add_invoice_screen.dart';
 import 'package:zip_care/src/feature/home/job/invoice/invoice_vm.dart';
 
 class InvoiceScreen extends StatelessWidget {
@@ -17,57 +19,54 @@ class InvoiceScreen extends StatelessWidget {
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(invoiceVmProvider);
       return Scaffold(
+          appBar: CommonAppBarWithBack(
+              title: "Invoices",
+              isBackActive: true,
+              nofi: true,
+              fontSize: font_18),
           floatingActionButton: FloatingActionButton(
               backgroundColor: AppColors.darkPinkColor,
               foregroundColor: Colors.white,
-              onPressed: () {},
-              child: Icon(Icons.add)),
-          body: SafeArea(
-              child: SingleChildScrollView(
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 20),
-                                child: CommonAppBarWithBack(
-                                    title: "Invoices",
-                                    isBackActive: true,
-                                    nofi: true,
-                                    fontSize: font_18)),
-                            SizedBox(height: height_10),
-                            Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CommonText(
-                                      "Invoices for John Watson",
-                                      fontSize: font_16,
-                                      fontFamily:
-                                          FontFamily.lexendBold),
-                                  CommonText("Job Id: 126565 ",
-                                      fontSize: font_15)
-                                ]),
-                            ListView.builder(
-                                shrinkWrap: true,
-                                physics:
-                                    NeverScrollableScrollPhysics(),
-                                itemCount: _vm.invoiceList.length,
-                                itemBuilder:
-                                    (BuildContext context, int i) {
-                                  var item = _vm.invoiceList[i];
-                                  return InvoiceTile(
-                                      no: "${i + 1}",
-                                      title: item['invoiceTitle'],
-                                      date: item['invoiceDate'],
-                                      status: item['status'],
-                                      amount: item['Amount']);
-                                }),
-                            SizedBox(height: height_30),
-                          ])))));
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AddInvoiceScreen()));
+              },
+              child: Image.asset(addInvoice, height: 30)),
+          body: SingleChildScrollView(
+              child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: height_10),
+                        Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
+                            children: [
+                              CommonText("Invoices for John Watson",
+                                  fontSize: font_16,
+                                  fontFamily: FontFamily.lexendBold),
+                              CommonText("Job Id: 126565 ",
+                                  fontSize: font_15)
+                            ]),
+                        ListView.builder(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: _vm.invoiceList.length,
+                            itemBuilder:
+                                (BuildContext context, int i) {
+                              var item = _vm.invoiceList[i];
+                              return InvoiceTile(
+                                  no: "${i + 1}",
+                                  title: item['invoiceTitle'],
+                                  date: item['invoiceDate'],
+                                  status: item['status'],
+                                  amount: item['Amount']);
+                            }),
+                        SizedBox(height: height_30),
+                      ]))));
     });
   }
 }

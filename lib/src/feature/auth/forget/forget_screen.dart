@@ -26,13 +26,12 @@ class _ForgetScreenState extends State<ForgetScreen> {
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(forgetVmProvider);
       return Scaffold(
+          appBar: CommonAppBarWithBack(
+              title: strForgotpassword, isBackActive: true),
           body: SafeArea(
               child: FormBuilder(
                   key: formKey,
                   child: Column(children: [
-                    CommonAppBarWithBack(
-                        title: strForgotpassword, isBackActive: true),
-                    SizedBox(height: size.height * 0.1),
                     Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: 20.0),

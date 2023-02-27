@@ -21,98 +21,85 @@ class ServiceAgreementScreen extends StatelessWidget {
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(serviceAgreementVmProvider);
       return Scaffold(
-          body: SafeArea(
-              child: SingleChildScrollView(
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 20),
-                                child: CommonAppBarWithBack(
-                                    title: "Service Agreement",
-                                    isBackActive: true,
-                                    nofi: true,
-                                    fontSize: font_18)),
-                            SizedBox(height: height_10),
-                            _vm.isEdit ||
-                                    _vm.isPreview ||
-                                    _vm.isApprove
-                                ? StatusContainer(
-                                    bgColor: _vm.isApprove
-                                        ? Colors.green
-                                        : AppColors.darkPinkColor,
-                                    title: _vm.isApprove
-                                        ? "Approved"
-                                        : _vm.isEdit
-                                            ? "Edit service agreement"
-                                            : _vm.isSent
-                                                ? "Pending for client approval"
-                                                : "Preview service agreement")
-                                : SizedBox(),
-                            SizedBox(height: height_20),
-                            FormBuilderTextField(
-                                style: TextStyle(fontSize: 15),
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    focusedBorder: InputBorder.none),
-                                enabled: _vm.isEdit,
-                                maxLines: 15,
-                                controller: _vm.serviceAgreement,
-                                name: strServiceAgreement),
-                            Divider(height: height_60),
-                            _vm.isSent
-                                ? CommonButtonWidget(
-                                    padding: EdgeInsets.zero,
-                                    buttonWidth: screenWidth,
-                                    onTap: () {
-                                      _vm.onApprove();
-                                    },
-                                    text: "Download",
-                                    icon: Icon(Icons.download,
-                                        color: Colors.white))
-                                : CommonButtonWidget(
-                                    padding: EdgeInsets.zero,
-                                    buttonWidth: screenWidth,
-                                    onTap: () {
-                                      _vm.isEdit
-                                          ? _vm.setEdit(isView: true)
-                                          : _vm.setEdit();
-                                    },
-                                    text:
-                                        _vm.isEdit ? "View" : "Edit",
-                                    icon: _vm.isEdit
-                                        ? Icon(
-                                            Icons.visibility_outlined,
-                                            color: Colors.white)
-                                        : imageAsset(editsImage,
-                                            height: height_20)),
-                            SizedBox(height: height_10),
-                            _vm.isEdit
-                                ? CommonButtonWidget(
-                                    padding: EdgeInsets.zero,
-                                    buttonWidth: screenWidth,
-                                    onTap: () {
-                                      _vm.setReset();
-                                    },
-                                    text: "Reset",
-                                    icon: imageAsset(reset,
-                                        height: height_20))
-                                : CommonButtonWidget(
-                                    padding: EdgeInsets.zero,
-                                    buttonWidth: screenWidth,
-                                    onTap: () {
-                                      _vm.onSend();
-                                    },
-                                    text: "Send",
-                                    icon: imageAsset(chatsImage,
-                                        height: height_20))
-                          ])))));
+          appBar: CommonAppBarWithBack(
+              title: "Service Agreement",
+              isBackActive: true,
+              nofi: true,
+              fontSize: font_18),
+          body: SingleChildScrollView(
+              child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: height_10),
+                        _vm.isEdit || _vm.isPreview || _vm.isApprove
+                            ? StatusContainer(
+                                bgColor: _vm.isApprove
+                                    ? Colors.green
+                                    : AppColors.darkPinkColor,
+                                title: _vm.isApprove
+                                    ? "Approved"
+                                    : _vm.isEdit
+                                        ? "Edit service agreement"
+                                        : _vm.isSent
+                                            ? "Pending for client approval"
+                                            : "Preview service agreement")
+                            : SizedBox(),
+                        SizedBox(height: height_20),
+                        FormBuilderTextField(
+                            style: TextStyle(fontSize: 15),
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none),
+                            enabled: _vm.isEdit,
+                            maxLines: 15,
+                            controller: _vm.serviceAgreement,
+                            name: strServiceAgreement),
+                        Divider(height: height_60),
+                        _vm.isSent
+                            ? CommonButtonWidget(
+                                buttonWidth: screenWidth,
+                                onTap: () {
+                                  _vm.onApprove();
+                                },
+                                text: "Download",
+                                icon: Icon(Icons.download,
+                                    color: Colors.white))
+                            : CommonButtonWidget(
+                                buttonWidth: screenWidth,
+                                onTap: () {
+                                  _vm.isEdit
+                                      ? _vm.setEdit(isView: true)
+                                      : _vm.setEdit();
+                                },
+                                text: _vm.isEdit ? "View" : "Edit",
+                                icon: _vm.isEdit
+                                    ? Icon(Icons.visibility_outlined,
+                                        color: Colors.white)
+                                    : imageAsset(editsImage,
+                                        height: height_20)),
+                        SizedBox(height: height_10),
+                        _vm.isEdit
+                            ? CommonButtonWidget(
+                                buttonWidth: screenWidth,
+                                onTap: () {
+                                  _vm.setReset();
+                                },
+                                text: "Reset",
+                                icon: imageAsset(reset,
+                                    height: height_20))
+                            : CommonButtonWidget(
+                                buttonWidth: screenWidth,
+                                onTap: () {
+                                  _vm.onSend();
+                                },
+                                text: "Send",
+                                icon: imageAsset(chatsImage,
+                                    height: height_20))
+                      ]))));
     });
   }
 }

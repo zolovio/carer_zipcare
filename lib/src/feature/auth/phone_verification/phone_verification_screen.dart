@@ -71,90 +71,90 @@ class _PhoneVerificationScreenState
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(phoneVerificationVmProvider);
       return Scaffold(
-          body: SafeArea(
-              child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: FormBuilder(
-              key: formKey,
-              child: Column(children: [
-                CommonAppBarWithBack(
-                    title: "Phone Verification", isBackActive: true),
-                SizedBox(height: size.height * 0.1),
-                imageAsset(otpIllus,
-                    height: height_120, width: height_140),
-                SizedBox(height: 20.h),
-                Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: PinCodeTextField(
-                        appContext: context,
-                        pastedTextStyle: TextStyle(
-                            color: Colors.green.shade600,
-                            fontWeight: FontWeight.bold),
-                        length: 4,
-                        obscureText: true,
-                        obscuringCharacter: '•',
-                        blinkWhenObscuring: true,
-                        animationType: AnimationType.fade,
-                        pinTheme: PinTheme(
-                            shape: PinCodeFieldShape.box,
-                            borderRadius: BorderRadius.circular(12),
-                            fieldHeight: 40,
-                            fieldWidth: 50,
-                            errorBorderColor:
-                                AppColors.purpleLightColor,
-                            borderWidth: 1,
-                            activeColor: Colors.transparent,
-                            activeFillColor: Colors.transparent,
-                            inactiveColor: Colors.black),
-                        cursorColor: Colors.amber,
-                        animationDuration:
-                            const Duration(milliseconds: 300),
-                        // enableActiveFill: true,
-                        errorAnimationController: errorController,
-                        keyboardType: TextInputType.number,
-                        onCompleted: (v) {
-                          debugPrint("Completed");
-                        },
-                        onChanged: (value) {
-                          debugPrint(value);
-                          setState(() {
-                            currentText = value;
-                          });
-                        },
-                        beforeTextPaste: (text) {
-                          debugPrint("Allowing to paste $text");
-                          return true;
-                        })),
-                Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Text("Enter your OTP code here",
-                        style: textStyleMedium(fontsize: 15))),
-                SizedBox(height: 50.h),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Resend code in ",
-                          style: textStyleMedium()),
-                      Text("$secondsRemaining",
-                          style: textStyleMedium(
-                              color: AppColors.darkPinkColor))
-                    ]),
+          appBar: CommonAppBarWithBack(
+              title: "Phone Verification", isBackActive: true),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: FormBuilder(
+                  key: formKey,
+                  child: Column(children: [
+                    SizedBox(height: size.height * 0.1),
+                    imageAsset(otpIllus,
+                        height: height_120, width: height_140),
+                    SizedBox(height: 20.h),
+                    Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: PinCodeTextField(
+                            appContext: context,
+                            pastedTextStyle: TextStyle(
+                                color: Colors.green.shade600,
+                                fontWeight: FontWeight.bold),
+                            length: 4,
+                            obscureText: true,
+                            obscuringCharacter: '•',
+                            blinkWhenObscuring: true,
+                            animationType: AnimationType.fade,
+                            pinTheme: PinTheme(
+                                shape: PinCodeFieldShape.box,
+                                borderRadius:
+                                    BorderRadius.circular(12),
+                                fieldHeight: 40,
+                                fieldWidth: 50,
+                                errorBorderColor:
+                                    AppColors.purpleLightColor,
+                                borderWidth: 1,
+                                activeColor: Colors.transparent,
+                                activeFillColor: Colors.transparent,
+                                inactiveColor: Colors.black),
+                            cursorColor: Colors.amber,
+                            animationDuration:
+                                const Duration(milliseconds: 300),
+                            // enableActiveFill: true,
+                            errorAnimationController: errorController,
+                            keyboardType: TextInputType.number,
+                            onCompleted: (v) {
+                              debugPrint("Completed");
+                            },
+                            onChanged: (value) {
+                              debugPrint(value);
+                              setState(() {
+                                currentText = value;
+                              });
+                            },
+                            beforeTextPaste: (text) {
+                              debugPrint("Allowing to paste $text");
+                              return true;
+                            })),
+                    Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: Text("Enter your OTP code here",
+                            style: textStyleMedium(fontsize: 15))),
+                    SizedBox(height: 50.h),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Resend code in ",
+                              style: textStyleMedium()),
+                          Text("$secondsRemaining",
+                              style: textStyleMedium(
+                                  color: AppColors.darkPinkColor))
+                        ]),
 
-                SizedBox(height: 20.h),
-                // ElevatedButton(
-                //     child: Text("Resend code in"),
-                //     onPressed: enableResend ? _resendCode : null),
-                CommonButtonWidget(
-                    onTap: () {
-                      if (formKey.currentState!.validate()) {
-                        _vm.onVerify(context);
-                      }
-                    },
-                    text: "Submit")
-              ])),
-        ),
-      )));
+                    SizedBox(height: 20.h),
+                    // ElevatedButton(
+                    //     child: Text("Resend code in"),
+                    //     onPressed: enableResend ? _resendCode : null),
+                    CommonButtonWidget(
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            _vm.onVerify(context);
+                          }
+                        },
+                        text: "Submit")
+                  ])),
+            ),
+          ));
     });
   }
 }

@@ -25,478 +25,476 @@ class JobsDetail extends StatelessWidget {
     return Consumer(builder: (context, ref, _) {
       final _vm = ref.watch(jobDetailVmProvider);
       return Scaffold(
-          body: SafeArea(
-              child: SingleChildScrollView(
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 20),
-                                child: CommonAppBarWithBack(
-                                    title:
-                                        strFemaleHourlydaycarerrequired,
-                                    isBackActive: true,
-                                    nofi: true,
-                                    fontSize: font_18)),
-                            SizedBox(height: height_10),
-                            Stack(
-                                alignment: Alignment.topCenter,
-                                children: [
-                                  Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 50),
-                                      child: Container(
-                                          width: screenWidth,
-                                          decoration: BoxDecoration(
-                                              color: AppColors
-                                                  .purpleLightColor,
-                                              borderRadius:
-                                                  BorderRadius
-                                                      .circular(13)),
-                                          child: Padding(
-                                              padding:
-                                                  EdgeInsets.only(
-                                                      top: 60,
-                                                      bottom: 25),
-                                              child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .center,
-                                                  children: [
-                                                    CommonText(
-                                                        _vm.jobDetail[
-                                                            "name"],
-                                                        color: AppColors
-                                                            .darkPinkColor,
-                                                        fontSize: 16,
-                                                        fontFamily:
-                                                            FontFamily
-                                                                .lexendBold),
-                                                    SizedBox(
-                                                        height:
-                                                            height_5),
-                                                    CommonText(
-                                                        "Job Id: ${_vm.jobDetail["jobId"]}",
-                                                        fontSize: 13,
-                                                        color: AppColors
-                                                            .colorGrey),
-                                                    SizedBox(
-                                                        height:
-                                                            height_20),
-                                                    Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        children: [
-                                                          Column(
-                                                              children: [
-                                                                imageAsset(
-                                                                    iconPeople,
-                                                                    height: height_20,
-                                                                    color: AppColors.colorMusted),
-                                                                SizedBox(
-                                                                    height: height_5),
-                                                                CommonText(
-                                                                    "${_vm.jobDetail["year"]} year",
-                                                                    fontSize: 12,
-                                                                    color: AppColors.colorGrey)
-                                                              ]),
-                                                          Column(
-                                                              children: [
-                                                                imageAsset(
-                                                                    icpin,
-                                                                    height: height_20,
-                                                                    color: AppColors.blueColors),
-                                                                SizedBox(
-                                                                    height: height_5),
-                                                                CommonText(
-                                                                    "${_vm.jobDetail["location"]}",
-                                                                    maxLines: 3,
-                                                                    fontSize: 12,
-                                                                    color: AppColors.colorGrey)
-                                                              ]),
-                                                          Column(
-                                                              children: [
-                                                                imageAsset(
-                                                                    iconCalender,
-                                                                    height: height_20),
-                                                                SizedBox(
-                                                                    height: height_5),
-                                                                CommonText(
-                                                                    "${_vm.jobDetail["date"]}",
-                                                                    fontSize: 12,
-                                                                    color: AppColors.colorGrey)
-                                                              ]),
-                                                          Column(
-                                                              children: [
-                                                                imageAsset(
-                                                                    clockImage,
-                                                                    height: height_20,
-                                                                    color: AppColors.redColor),
-                                                                SizedBox(
-                                                                    height: height_5),
-                                                                CommonText(
-                                                                    "${_vm.jobDetail["hour"]}",
-                                                                    fontSize: 12,
-                                                                    color: AppColors.colorGrey)
-                                                              ])
-                                                        ])
-                                                  ])))),
-                                  Container(
-                                      width: 100,
-                                      height: 100,
+          appBar: CommonAppBarWithBack(
+              title: strFemaleHourlydaycarerrequired,
+              isBackActive: true,
+              nofi: true,
+              fontSize: font_18),
+          body: SingleChildScrollView(
+              child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: height_10),
+                        Stack(
+                            alignment: Alignment.topCenter,
+                            children: [
+                              Padding(
+                                  padding: EdgeInsets.only(top: 50),
+                                  child: Container(
+                                      width: screenWidth,
                                       decoration: BoxDecoration(
-                                          color: AppColors.whiteColor,
+                                          color: AppColors
+                                              .purpleLightColor,
                                           borderRadius:
-                                              BorderRadius.all(
-                                                  Radius.circular(
-                                                      50.0)),
-                                          border: Border.all(
-                                              color: AppColors
-                                                  .whiteColor,
-                                              width: 4.0)),
-                                      child: CircleAvatar(radius: 30))
-                                ]),
-                            SizedBox(height: height_20),
-                            Row(children: [
-                              CommonText("Job Status  :"),
-                              SizedBox(width: 10),
-                              CommonText("Accepted",
-                                  color: AppColors.darkGreenColor,
-                                  fontFamily: FontFamily.mazzard,
-                                  fontWeight: FontWeight.w600)
-                            ]),
-                            //SizedBox(height: height_20),
-                            Divider(height: height_40),
-                            CommonText(
-                                "Is this a self-employed position?",
-                                fontSize: font_15),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: _vm
-                                        .jobDetail[
-                                            "selfEmployedPosition"]
-                                        .length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var selfEmployedPosition = _vm
-                                              .jobDetail[
-                                          "selfEmployedPosition"][i];
-                                      return Padding(
+                                              BorderRadius.circular(
+                                                  13)),
+                                      child: Padding(
                                           padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text:
-                                                  selfEmployedPosition,
-                                              textColor:
-                                                  AppColors.colorGrey,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_20),
-                            CommonText(
-                                "Is it an urgent requirement/ needs matching?",
-                                fontSize: font_15),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: _vm
-                                        .jobDetail[
-                                            "urgentRequirement"]
-                                        .length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var urgentRequirement =
-                                          _vm.jobDetail[
-                                              "urgentRequirement"][i];
-                                      return Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text: urgentRequirement,
-                                              textColor:
-                                                  AppColors.colorGrey,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_20),
-                            CommonText(
-                                "Is the carer requested for a person or business?",
-                                fontSize: font_15),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: _vm
-                                        .jobDetail["carerRequested"]
-                                        .length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var carerRequested =
-                                          _vm.jobDetail[
-                                              "carerRequested"][i];
-                                      return Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text: carerRequested,
-                                              textColor:
-                                                  AppColors.colorGrey,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_20),
-                            CommonText(
-                                "Are you the person needing care",
-                                fontSize: font_15),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: _vm
-                                        .jobDetail[
-                                            "personNeedingCare"]
-                                        .length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var personNeedingCare =
-                                          _vm.jobDetail[
-                                              "personNeedingCare"][i];
-                                      return Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text: personNeedingCare,
-                                              textColor:
-                                                  AppColors.colorGrey,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_20),
-                            CommonText("Type of care*",
-                                fontSize: font_15,
-                                color: AppColors.colorGrey),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: _vm
-                                        .jobDetail["typeOfCare"]
-                                        .length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var typeOfCare = _vm
-                                          .jobDetail["typeOfCare"][i];
-                                      return Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text: typeOfCare,
-                                              textColor:
-                                                  AppColors.colorGrey,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_20),
-                            CommonText("Type of job*",
-                                fontSize: font_15,
-                                color: AppColors.colorGrey),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: _vm
-                                        .jobDetail["typeOfJob"]
-                                        .length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var typeOfJob = _vm
-                                          .jobDetail["typeOfJob"][i];
-                                      return Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text: typeOfJob,
-                                              textColor:
-                                                  AppColors.colorGrey,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_20),
-                            CommonText("When do you require care ?",
-                                fontSize: font_15,
-                                color: AppColors.colorGrey),
-                            SizedBox(height: height_5),
-                            Row(
-                              children: [
-                                CommonText("Start Date:",
-                                    fontSize: font_15,
-                                    color: AppColors.lightGreyColor),
-                                SizedBox(width: width_5),
-                                CommonText(_vm.jobDetail["startDate"],
-                                    fontSize: font_15),
-                                SizedBox(width: width_25),
-                                CommonText("Time:",
-                                    fontSize: font_15,
-                                    color: AppColors.lightGreyColor),
-                                SizedBox(width: width_5),
-                                CommonText(_vm.jobDetail["time"],
-                                    fontSize: font_15),
-                              ],
-                            ),
-                            Divider(height: height_20),
-                            CommonText("Carer’s Gender",
-                                fontSize: font_15,
-                                color: AppColors.colorGrey),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: _vm
-                                        .jobDetail["carerGender"]
-                                        .length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var carerGender =
-                                          _vm.jobDetail["carerGender"]
-                                              [i];
-                                      return Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text: carerGender,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_20),
-                            CommonText(
-                                "You need care for which health conditions.",
-                                fontSize: font_15,
-                                color: AppColors.colorGrey),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: _vm
-                                        .jobDetail["healthConditions"]
-                                        .length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var healthConditions =
-                                          _vm.jobDetail[
-                                              "healthConditions"][i];
-                                      return Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text: healthConditions,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_20),
-                            CommonText(
-                                "Services you need from the carer",
-                                fontSize: font_15,
-                                color: AppColors.colorGrey),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount:
-                                        _vm.jobDetail["carer"].length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var carer =
-                                          _vm.jobDetail["carer"][i];
-                                      return Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text: carer,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_20),
-                            CommonText("Access to funding?",
-                                fontSize: font_15,
-                                color: AppColors.colorGrey),
-                            Container(
-                                height: 50,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: _vm
-                                        .jobDetail["accessToFunding"]
-                                        .length,
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder:
-                                        (BuildContext ctx, int i) {
-                                      var accessToFunding =
-                                          _vm.jobDetail[
-                                              "accessToFunding"][i];
-                                      return Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 8.0),
-                                          child: CommonChip(
-                                              text: accessToFunding,
-                                              onDeleted: () {}));
-                                    })),
-                            Divider(height: height_50),
-                            CommonText("Specific Requirements",
-                                fontSize: 13),
-                            SizedBox(height: height_10),
-                            CommonText(
-                                _vm.jobDetail["specificRequirements"],
-                                fontSize: 13,
-                                color: AppColors.colorGrey,
-                                maxLines: 15,
-                                textAlign: TextAlign.start),
-                            InkWell(
-                                onTap: () {},
-                                child: Container(
-                                    child: Container(
-                                        decoration: BoxDecoration(
-                                            border: Border(
-                                                bottom: BorderSide(
-                                                    width: 1.0,
+                                              top: 60, bottom: 25),
+                                          child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .center,
+                                              children: [
+                                                CommonText(
+                                                    _vm.jobDetail[
+                                                        "name"],
                                                     color: AppColors
-                                                        .blackColor))),
-                                        child: CommonText("Read More",
-                                            fontSize: 12.sp)))),
-                            CommonButtonWidget(
-                                padding: EdgeInsets.only(top: 30),
-                                buttonWidth: screenWidth,
-                                buttonColors:
-                                    AppColors.lighterPinkColor2,
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              ServiceAgreementScreen()));
-                                },
-                                text: "Generate Service aggreement"),
-                            CommonButtonWidget(
-                                padding: EdgeInsets.only(top: 20),
-                                buttonWidth: screenWidth,
-                                buttonColors:
-                                    AppColors.lighterPinkColor2,
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              InvoiceScreen()));
-                                },
-                                text: "Invoices"),
-                            SizedBox(height: 30)
-                          ])))));
+                                                        .darkPinkColor,
+                                                    fontSize: 16,
+                                                    fontFamily:
+                                                        FontFamily
+                                                            .lexendBold),
+                                                SizedBox(
+                                                    height: height_5),
+                                                CommonText(
+                                                    "Job Id: ${_vm.jobDetail["jobId"]}",
+                                                    fontSize: 13,
+                                                    color: AppColors
+                                                        .colorGrey),
+                                                SizedBox(
+                                                    height:
+                                                        height_20),
+                                                Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      Column(
+                                                          children: [
+                                                            imageAsset(
+                                                                iconPeople,
+                                                                height:
+                                                                    height_20,
+                                                                color:
+                                                                    AppColors.colorMusted),
+                                                            SizedBox(
+                                                                height:
+                                                                    height_5),
+                                                            CommonText(
+                                                                "${_vm.jobDetail["year"]} year",
+                                                                fontSize:
+                                                                    12,
+                                                                color:
+                                                                    AppColors.colorGrey)
+                                                          ]),
+                                                      Column(
+                                                          children: [
+                                                            imageAsset(
+                                                                icpin,
+                                                                height:
+                                                                    height_20,
+                                                                color:
+                                                                    AppColors.blueColors),
+                                                            SizedBox(
+                                                                height:
+                                                                    height_5),
+                                                            CommonText(
+                                                                "${_vm.jobDetail["location"]}",
+                                                                maxLines:
+                                                                    3,
+                                                                fontSize:
+                                                                    12,
+                                                                color:
+                                                                    AppColors.colorGrey)
+                                                          ]),
+                                                      Column(
+                                                          children: [
+                                                            imageAsset(
+                                                                iconCalender,
+                                                                height:
+                                                                    height_20),
+                                                            SizedBox(
+                                                                height:
+                                                                    height_5),
+                                                            CommonText(
+                                                                "${_vm.jobDetail["date"]}",
+                                                                fontSize:
+                                                                    12,
+                                                                color:
+                                                                    AppColors.colorGrey)
+                                                          ]),
+                                                      Column(
+                                                          children: [
+                                                            imageAsset(
+                                                                clockImage,
+                                                                height:
+                                                                    height_20,
+                                                                color:
+                                                                    AppColors.redColor),
+                                                            SizedBox(
+                                                                height:
+                                                                    height_5),
+                                                            CommonText(
+                                                                "${_vm.jobDetail["hour"]}",
+                                                                fontSize:
+                                                                    12,
+                                                                color:
+                                                                    AppColors.colorGrey)
+                                                          ])
+                                                    ])
+                                              ])))),
+                              Container(
+                                  width: 100,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                      color: AppColors.whiteColor,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(50.0)),
+                                      border: Border.all(
+                                          color: AppColors.whiteColor,
+                                          width: 4.0)),
+                                  child: CircleAvatar(radius: 30))
+                            ]),
+                        SizedBox(height: height_20),
+                        Row(children: [
+                          CommonText("Job Status  :"),
+                          SizedBox(width: 10),
+                          CommonText("Accepted",
+                              color: AppColors.darkGreenColor,
+                              fontFamily: FontFamily.mazzard,
+                              fontWeight: FontWeight.w600)
+                        ]),
+                        //SizedBox(height: height_20),
+                        Divider(height: height_40),
+                        CommonText(
+                            "Is this a self-employed position?",
+                            fontSize: font_15),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: _vm
+                                    .jobDetail["selfEmployedPosition"]
+                                    .length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var selfEmployedPosition =
+                                      _vm.jobDetail[
+                                          "selfEmployedPosition"][i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: selfEmployedPosition,
+                                          textColor:
+                                              AppColors.colorGrey,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_20),
+                        CommonText(
+                            "Is it an urgent requirement/ needs matching?",
+                            fontSize: font_15),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: _vm
+                                    .jobDetail["urgentRequirement"]
+                                    .length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var urgentRequirement =
+                                      _vm.jobDetail[
+                                          "urgentRequirement"][i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: urgentRequirement,
+                                          textColor:
+                                              AppColors.colorGrey,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_20),
+                        CommonText(
+                            "Is the carer requested for a person or business?",
+                            fontSize: font_15),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: _vm
+                                    .jobDetail["carerRequested"]
+                                    .length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var carerRequested = _vm
+                                      .jobDetail["carerRequested"][i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: carerRequested,
+                                          textColor:
+                                              AppColors.colorGrey,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_20),
+                        CommonText("Are you the person needing care",
+                            fontSize: font_15),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: _vm
+                                    .jobDetail["personNeedingCare"]
+                                    .length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var personNeedingCare =
+                                      _vm.jobDetail[
+                                          "personNeedingCare"][i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: personNeedingCare,
+                                          textColor:
+                                              AppColors.colorGrey,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_20),
+                        CommonText("Type of care*",
+                            fontSize: font_15,
+                            color: AppColors.colorGrey),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: _vm
+                                    .jobDetail["typeOfCare"].length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var typeOfCare =
+                                      _vm.jobDetail["typeOfCare"][i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: typeOfCare,
+                                          textColor:
+                                              AppColors.colorGrey,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_20),
+                        CommonText("Type of job*",
+                            fontSize: font_15,
+                            color: AppColors.colorGrey),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount:
+                                    _vm.jobDetail["typeOfJob"].length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var typeOfJob =
+                                      _vm.jobDetail["typeOfJob"][i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: typeOfJob,
+                                          textColor:
+                                              AppColors.colorGrey,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_20),
+                        CommonText("When do you require care ?",
+                            fontSize: font_15,
+                            color: AppColors.colorGrey),
+                        SizedBox(height: height_5),
+                        Row(
+                          children: [
+                            CommonText("Start Date:",
+                                fontSize: font_15,
+                                color: AppColors.lightGreyColor),
+                            SizedBox(width: width_5),
+                            CommonText(_vm.jobDetail["startDate"],
+                                fontSize: font_15),
+                            SizedBox(width: width_25),
+                            CommonText("Time:",
+                                fontSize: font_15,
+                                color: AppColors.lightGreyColor),
+                            SizedBox(width: width_5),
+                            CommonText(_vm.jobDetail["time"],
+                                fontSize: font_15),
+                          ],
+                        ),
+                        Divider(height: height_20),
+                        CommonText("Carer’s Gender",
+                            fontSize: font_15,
+                            color: AppColors.colorGrey),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: _vm
+                                    .jobDetail["carerGender"].length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var carerGender =
+                                      _vm.jobDetail["carerGender"][i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: carerGender,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_20),
+                        CommonText(
+                            "You need care for which health conditions.",
+                            fontSize: font_15,
+                            color: AppColors.colorGrey),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: _vm
+                                    .jobDetail["healthConditions"]
+                                    .length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var healthConditions =
+                                      _vm.jobDetail[
+                                          "healthConditions"][i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: healthConditions,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_20),
+                        CommonText("Services you need from the carer",
+                            fontSize: font_15,
+                            color: AppColors.colorGrey),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount:
+                                    _vm.jobDetail["carer"].length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var carer =
+                                      _vm.jobDetail["carer"][i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: carer,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_20),
+                        CommonText("Access to funding?",
+                            fontSize: font_15,
+                            color: AppColors.colorGrey),
+                        Container(
+                            height: 50,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: _vm
+                                    .jobDetail["accessToFunding"]
+                                    .length,
+                                padding: EdgeInsets.zero,
+                                itemBuilder:
+                                    (BuildContext ctx, int i) {
+                                  var accessToFunding =
+                                      _vm.jobDetail["accessToFunding"]
+                                          [i];
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.only(right: 8.0),
+                                      child: CommonChip(
+                                          text: accessToFunding,
+                                          onDeleted: () {}));
+                                })),
+                        Divider(height: height_50),
+                        CommonText("Specific Requirements",
+                            fontSize: 13),
+                        SizedBox(height: height_10),
+                        CommonText(
+                            _vm.jobDetail["specificRequirements"],
+                            fontSize: 13,
+                            color: AppColors.colorGrey,
+                            maxLines: 15,
+                            textAlign: TextAlign.start),
+                        InkWell(
+                            onTap: () {},
+                            child: Container(
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                        border: Border(
+                                            bottom: BorderSide(
+                                                width: 1.0,
+                                                color: AppColors
+                                                    .blackColor))),
+                                    child: CommonText("Read More",
+                                        fontSize: 12.sp)))),
+
+                        SizedBox(height: 30),
+
+                        CommonButtonWidget(
+                            buttonWidth: screenWidth,
+                            buttonColors: AppColors.lighterPinkColor2,
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ServiceAgreementScreen()));
+                            },
+                            text: "Generate Service aggreement"),
+
+                        SizedBox(height: 20),
+
+                        CommonButtonWidget(
+                            buttonWidth: screenWidth,
+                            buttonColors: AppColors.lighterPinkColor2,
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          InvoiceScreen()));
+                            },
+                            text: "Invoices"),
+                        SizedBox(height: 30)
+                      ]))));
     });
   }
 }
@@ -610,49 +608,51 @@ class Popup extends StatelessWidget {
                                           TextInputAction.newline,
                                       name: '',
                                     )),
-                                CommonButtonWidget(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 25, horizontal: 25),
-                                    buttonWidth: screenWidth,
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext
-                                                  context) =>
-                                              AlertDialog(
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius
-                                                          .all(Radius
-                                                              .circular(
-                                                                  13))),
-                                                  content: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize
-                                                              .min,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    10),
-                                                            child: Center(
-                                                                child: Container(
-                                                                    width: screenWidth,
-                                                                    decoration: BoxDecoration(color: AppColors.whiteColor, borderRadius: BorderRadius.circular(13)),
-                                                                    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                                                                      Center(child: Image.asset(icdone, height: 120)),
-                                                                      SizedBox(height: height_5),
-                                                                      CommonText("Applied", color: AppColors.blackColor, fontSize: 15.sp, fontFamily: FontFamily.lexendSemiBold),
-                                                                      SizedBox(height: height_10),
-                                                                      CommonText("Congratulation! You Applied this job successfully.", fontSize: 13, color: AppColors.colorGrey, maxLines: 2),
-                                                                      SizedBox(height: height_10),
-                                                                    ]))))
-                                                      ])));
-                                    },
-                                    text: "Submit")
+                                SizedBox(height: 30),
+                                Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 20),
+                                  child: CommonButtonWidget(
+                                      buttonWidth: screenWidth,
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                        showDialog(
+                                            context: context,
+                                            builder: (BuildContext
+                                                    context) =>
+                                                AlertDialog(
+                                                    shape: RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    13))),
+                                                    content: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize
+                                                                .min,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Padding(
+                                                              padding:
+                                                                  EdgeInsets.all(10),
+                                                              child: Center(
+                                                                  child: Container(
+                                                                      width: screenWidth,
+                                                                      decoration: BoxDecoration(color: AppColors.whiteColor, borderRadius: BorderRadius.circular(13)),
+                                                                      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                                                                        Center(child: Image.asset(icdone, height: 120)),
+                                                                        SizedBox(height: height_5),
+                                                                        CommonText("Applied", color: AppColors.blackColor, fontSize: 15.sp, fontFamily: FontFamily.lexendSemiBold),
+                                                                        SizedBox(height: height_10),
+                                                                        CommonText("Congratulation! You Applied this job successfully.", fontSize: 13, color: AppColors.colorGrey, maxLines: 2),
+                                                                        SizedBox(height: height_10),
+                                                                      ]))))
+                                                        ])));
+                                      },
+                                      text: "Submit"),
+                                )
                               ])))),
               GestureDetector(
                   onTap: () {
