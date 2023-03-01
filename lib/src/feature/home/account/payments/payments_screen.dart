@@ -12,6 +12,7 @@ import 'package:zip_care/src/feature/home/account/payments/add_bank/add_bank_scr
 import 'package:zip_care/src/feature/home/account/payments/add_bank/add_coupons/add_coupons_screen.dart';
 import 'package:zip_care/src/feature/home/account/payments/add_bank/payment_status/payment_status_screen.dart';
 import 'package:zip_care/src/feature/home/account/payments/payments_vm.dart';
+
 import '../../../../core/ui_component/common_text.dart';
 
 class PaymentsScreen extends StatelessWidget {
@@ -23,14 +24,11 @@ class PaymentsScreen extends StatelessWidget {
       final _vm = ref.watch(paymentsVmProvider);
       return Scaffold(
           appBar: CommonAppBarWithBack(
-              title: strPayment,
-              fontSize: font_20,
-              logo: true,
-              nofi: true),
+              title: strPayment, fontSize: font_20, logo: true, nofi: true),
           body: SingleChildScrollView(
               child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 20.sp, vertical: 15.sp),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.sp, vertical: 15.sp),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -39,20 +37,17 @@ class PaymentsScreen extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          AddBankScreen()));
+                                      builder: (context) => AddBankScreen()));
                             },
                             child: Container(
                                 width: screenWidth,
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius:
-                                        BorderRadius.circular(
-                                            radius_10),
-                                    boxShadow: [
+                                        BorderRadius.circular(radius_10),
+                                    boxShadow: const [
                                       BoxShadow(
-                                          color: AppColors
-                                              .lightestGreyColor,
+                                          color: AppColors.lightestGreyColor,
                                           blurRadius: 5,
                                           spreadRadius: 2)
                                     ]),
@@ -61,18 +56,14 @@ class PaymentsScreen extends StatelessWidget {
                                       padding: EdgeInsets.all(10.sp),
                                       child: imageAsset(bank)),
                                   Padding(
-                                      padding: EdgeInsets.only(
-                                          bottom: 10.sp),
-                                      child: CommonText(
-                                          strAddPaymentMethod,
-                                          color:
-                                              AppColors.blueGreyColor,
+                                      padding: EdgeInsets.only(bottom: 10.sp),
+                                      child: CommonText(strAddPaymentMethod,
+                                          color: AppColors.blueGreyColor,
                                           fontSize: font_15))
                                 ]))),
                         SizedBox(height: height_20),
                         Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               GestureDetector(
                                   onTap: () {
@@ -80,22 +71,18 @@ class PaymentsScreen extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                AddCouponsScreen()));
+                                                const AddCouponsScreen()));
                                   },
                                   child: Container(
                                       height: height_35,
                                       width: screenWidth / 2.8.w,
                                       decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(
-                                                  radius_50), // Creates border
-                                          color: AppColors
-                                              .darkPinkColor),
+                                          borderRadius: BorderRadius.circular(
+                                              radius_50), // Creates border
+                                          color: AppColors.darkPinkColor),
                                       child: Center(
-                                          child: CommonText(
-                                              "Add Coupons",
-                                              color: AppColors
-                                                  .whiteColor,
+                                          child: CommonText("Add Coupons",
+                                              color: AppColors.whiteColor,
                                               fontSize: font_15)))),
                               Container(
                                   height: height_35,
@@ -103,42 +90,35 @@ class PaymentsScreen extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(
                                           radius_50), // Creates border
-                                      color:
-                                          AppColors.lightGreyColor)),
+                                      color: AppColors.lightGreyColor)),
                               Container(
                                   height: height_35,
                                   width: screenWidth / 2.8.w,
                                   decoration: BoxDecoration(
                                       border: Border.all(
                                           width: 1,
-                                          color: AppColors
-                                              .blueGreyColor),
+                                          color: AppColors.blueGreyColor),
                                       borderRadius: BorderRadius.circular(
                                           radius_50), // Creates border
                                       color: AppColors.whiteColor),
                                   child: Center(
-                                      child: CommonText(
-                                          "Connect Stripe",
-                                          color:
-                                              AppColors.blueGreyColor,
+                                      child: CommonText("Connect Stripe",
+                                          color: AppColors.blueGreyColor,
                                           fontSize: font_15)))
                             ]),
                         SizedBox(height: height_30),
                         Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               CommonText("Recent Transactions",
                                   fontSize: font_18,
-                                  fontFamily:
-                                      FontFamily.lexendSemiBold)
+                                  fontFamily: FontFamily.lexendSemiBold)
                             ]),
                         ListView.builder(
                             shrinkWrap: true,
                             physics: NeverScrollableScrollPhysics(),
                             itemCount: _vm.transactionsList.length,
-                            itemBuilder:
-                                (BuildContext context, int i) {
+                            itemBuilder: (BuildContext context, int i) {
                               var list = _vm.transactionsList[i];
                               return Padding(
                                   padding: EdgeInsets.all(5.sp),
@@ -149,24 +129,19 @@ class PaymentsScreen extends StatelessWidget {
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   PaymentStatusScreen(
-                                                      name: list[
-                                                          "name"]!,
-                                                      status: list[
-                                                          "status"]!,
-                                                      amount: list[
-                                                          "amount"]!,
-                                                      img: list[
-                                                          "img"]!,
+                                                      name: list["name"]!,
+                                                      status: list["status"]!,
+                                                      amount: list["amount"]!,
+                                                      img: list["img"]!,
                                                       date: "date")));
                                     },
                                     child: Container(
                                         width: screenWidth,
                                         decoration: BoxDecoration(
                                             color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(
-                                                    radius_10),
-                                            boxShadow: [
+                                            borderRadius: BorderRadius.circular(
+                                                radius_10),
+                                            boxShadow: const [
                                               BoxShadow(
                                                   color: AppColors
                                                       .lightestGreyColor,
@@ -174,8 +149,7 @@ class PaymentsScreen extends StatelessWidget {
                                                   spreadRadius: 2)
                                             ]),
                                         child: Padding(
-                                            padding:
-                                                EdgeInsets.all(10),
+                                            padding: const EdgeInsets.all(10),
                                             child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
@@ -185,33 +159,26 @@ class PaymentsScreen extends StatelessWidget {
                                                     CircleAvatar(
                                                         backgroundImage:
                                                             AssetImage(
-                                                                list[
-                                                                    "img"]!)),
-                                                    SizedBox(
-                                                        width:
-                                                            width_15),
+                                                                list["img"]!)),
+                                                    SizedBox(width: width_15),
                                                     Column(
                                                         crossAxisAlignment:
                                                             CrossAxisAlignment
                                                                 .start,
                                                         children: [
                                                           CommonText(
-                                                              list[
-                                                                  "name"]!,
+                                                              list["name"]!,
                                                               color: AppColors
                                                                   .blueGreyishColor,
                                                               fontSize:
                                                                   font_18),
                                                           SizedBox(
-                                                              height:
-                                                                  height_2),
+                                                              height: height_2),
                                                           CommonText(
-                                                              list[
-                                                                  "status"]!,
+                                                              list["status"]!,
                                                               color: AppColors
                                                                   .darkGreenColor,
-                                                              fontSize:
-                                                                  font_15)
+                                                              fontSize: font_15)
                                                         ])
                                                   ]),
                                                   Column(
@@ -220,25 +187,20 @@ class PaymentsScreen extends StatelessWidget {
                                                               .end,
                                                       children: [
                                                         CommonText(
-                                                            list[
-                                                                "amount"]!,
+                                                            list["amount"]!,
                                                             color: AppColors
                                                                 .blueGreyishColor,
-                                                            fontSize:
-                                                                font_20,
+                                                            fontSize: font_20,
                                                             fontFamily:
                                                                 FontFamily
                                                                     .lexendBold),
                                                         SizedBox(
-                                                            height:
-                                                                height_2),
+                                                            height: height_2),
                                                         CommonText(
-                                                            list[
-                                                                "date"]!,
+                                                            list["date"]!,
                                                             color: AppColors
                                                                 .blueGreyishColor,
-                                                            fontSize:
-                                                                font_12)
+                                                            fontSize: font_12)
                                                       ])
                                                 ]))),
                                   ));
