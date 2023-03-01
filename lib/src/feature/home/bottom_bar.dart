@@ -8,19 +8,19 @@ import 'package:zip_care/src/feature/home/chat/chat_screen.dart';
 import 'package:zip_care/src/feature/home/home/home_screen.dart';
 import 'package:zip_care/src/feature/home/job/job_screen.dart';
 
-class BottomBar extends StatefulWidget {
-  const BottomBar({super.key});
+class Dashboard extends StatefulWidget {
+  const Dashboard({super.key});
   @override
-  State<BottomBar> createState() => _Home();
+  State<Dashboard> createState() => _Home();
 }
 
-class _Home extends State<BottomBar> {
+class _Home extends State<Dashboard> {
   int _selectedIndex = 0;
   static const List _list = [
     HomeScreen(),
     JobScreen(),
     ChatScreen(),
-    Text("Timesheet"),
+    // Text("Timesheet"),
     AccountScreen(),
   ];
   void _onItemTapped(int index) {
@@ -44,8 +44,7 @@ class _Home extends State<BottomBar> {
                           padding: EdgeInsets.only(top: 0),
                           child: Container(
                               decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(50),
+                                  borderRadius: BorderRadius.circular(50),
                                   color: _selectedIndex == 0
                                       ? AppColors.lightestGreyColor
                                       : AppColors.whiteColor),
@@ -59,8 +58,7 @@ class _Home extends State<BottomBar> {
                           padding: EdgeInsets.only(top: 0),
                           child: Container(
                               decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(50),
+                                  borderRadius: BorderRadius.circular(50),
                                   color: _selectedIndex == 1
                                       ? AppColors.lightestGreyColor
                                       : AppColors.whiteColor),
@@ -74,8 +72,7 @@ class _Home extends State<BottomBar> {
                           padding: EdgeInsets.only(top: 0),
                           child: Container(
                               decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(50),
+                                  borderRadius: BorderRadius.circular(50),
                                   color: _selectedIndex == 2
                                       ? AppColors.lightestGreyColor
                                       : AppColors.whiteColor),
@@ -84,29 +81,28 @@ class _Home extends State<BottomBar> {
                                   child: Image.asset(chatUnImage,
                                       height: height_25)))),
                       label: "Chat"),
+                  // BottomNavigationBarItem(
+                  //     icon: Padding(
+                  //         padding: EdgeInsets.only(top: 0),
+                  //         child: Container(
+                  //             decoration: BoxDecoration(
+                  //                 borderRadius:
+                  //                     BorderRadius.circular(50),
+                  //                 color: _selectedIndex == 3
+                  //                     ? AppColors.lightestGreyColor
+                  //                     : AppColors.whiteColor),
+                  //             child: Padding(
+                  //                 padding: EdgeInsets.all(10),
+                  //                 child: Image.asset(
+                  //                     timesheetUnSelectedImage,
+                  //                     height: height_25)))),
+                  //     label: "Timesheet"),
                   BottomNavigationBarItem(
                       icon: Padding(
                           padding: EdgeInsets.only(top: 0),
                           child: Container(
                               decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(50),
-                                  color: _selectedIndex == 3
-                                      ? AppColors.lightestGreyColor
-                                      : AppColors.whiteColor),
-                              child: Padding(
-                                  padding: EdgeInsets.all(10),
-                                  child: Image.asset(
-                                      timesheetUnSelectedImage,
-                                      height: height_25)))),
-                      label: "Timesheet"),
-                  BottomNavigationBarItem(
-                      icon: Padding(
-                          padding: EdgeInsets.only(top: 0),
-                          child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.circular(50),
+                                  borderRadius: BorderRadius.circular(50),
                                   color: _selectedIndex == 4
                                       ? AppColors.lightestGreyColor
                                       : AppColors.whiteColor),

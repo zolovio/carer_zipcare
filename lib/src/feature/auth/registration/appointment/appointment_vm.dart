@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:zip_care/src/feature/auth/registration/search_address/search_address_screen.dart';
 import 'package:zip_care/src/feature/home/bottom_bar.dart';
 
 final appointmentVmProvider =
@@ -34,7 +33,7 @@ class AppointmentVm extends ChangeNotifier {
   }
 
   onNext(context) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => BottomBar()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => Dashboard()));
   }
 }
