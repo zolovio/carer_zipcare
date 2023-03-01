@@ -24,12 +24,11 @@ class MyReviewsScreen extends StatelessWidget {
               nofi: true),
           body: SingleChildScrollView(
               child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 20.sp, vertical: 15.sp),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.sp, vertical: 15.sp),
                   child: Column(children: [
                     CommonText("$rat",
-                        fontSize: font_40,
-                        fontFamily: FontFamily.lexendBold),
+                        fontSize: font_40, fontFamily: FontFamily.lexendBold),
                     RatingBar.builder(
                         initialRating: 3,
                         minRating: 1,
@@ -38,7 +37,7 @@ class MyReviewsScreen extends StatelessWidget {
                         allowHalfRating: true,
                         itemCount: 5,
                         itemBuilder: (context, _) =>
-                            Icon(Icons.star, color: Colors.amber),
+                            const Icon(Icons.star, color: Colors.amber),
                         onRatingUpdate: (rating) {
                           print(rating);
                           rat = rating;
@@ -47,86 +46,73 @@ class MyReviewsScreen extends StatelessWidget {
                     CommonText(_vm.myReviews["reviewsCount"],
                         color: AppColors.blueGreyColor),
                     SizedBox(height: height_40),
-                    Container(
-                        child: ListView.builder(
-                            physics: NeverScrollableScrollPhysics(),
-                            itemCount: _vm.myReviews["name"].length,
-                            shrinkWrap: true,
-                            itemBuilder: (context, i) {
-                              var list = _vm.reviewList[i];
-                              return Padding(
-                                  padding:
-                                      EdgeInsets.only(bottom: 20.sp),
-                                  child: ListTile(
-                                      contentPadding: EdgeInsets.zero,
-                                      title: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment
-                                                  .spaceBetween,
-                                          children: [
-                                            Row(children: [
-                                              CircleAvatar(),
-                                              SizedBox(
-                                                  width: width_20),
-                                              Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment
-                                                          .start,
-                                                  children: [
-                                                    CommonText(
-                                                        list["name"]!,
-                                                        fontFamily:
-                                                            FontFamily
-                                                                .lexendSemiBold,
-                                                        textAlign:
-                                                            TextAlign
-                                                                .start),
-                                                    Row(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .end,
-                                                        children: [
-                                                          RatingBar.builder(
-                                                              initialRating: 3,
-                                                              minRating: 1,
-                                                              itemSize: 20,
-                                                              direction: Axis.horizontal,
-                                                              allowHalfRating: true,
-                                                              itemCount: 5,
-                                                              itemBuilder: (context, _) => Icon(Icons.star, color: Colors.amber),
-                                                              onRatingUpdate: (rating) {
-                                                                print(
-                                                                    rating);
-                                                              }),
-                                                          SizedBox(
-                                                              width:
-                                                                  width_5),
-                                                          CommonText(
-                                                              list[
-                                                                  "rating"]!,
-                                                              fontSize:
-                                                                  font_17)
-                                                        ])
-                                                  ])
-                                            ]),
-                                            CommonText(
-                                                list["rating"]!,
-                                                color: AppColors
-                                                    .blueGreyColor,
-                                                fontSize: font_14)
-                                          ]),
-                                      subtitle: Padding(
-                                          padding: EdgeInsets.only(
-                                              top: 15.sp),
-                                          child: CommonText(
-                                              maxLines: 150,
-                                              list["des"]!,
-                                              color: AppColors
-                                                  .blueGreyColor,
-                                              textAlign:
-                                                  TextAlign.start,
-                                              fontSize: font_14))));
-                            }))
+                    ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: _vm.myReviews["name"].length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, i) {
+                          var list = _vm.reviewList[i];
+                          return Padding(
+                              padding: EdgeInsets.only(bottom: 20.sp),
+                              child: ListTile(
+                                  contentPadding: EdgeInsets.zero,
+                                  title: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(children: [
+                                          CircleAvatar(),
+                                          SizedBox(width: width_20),
+                                          Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                CommonText(list["name"]!,
+                                                    fontFamily: FontFamily
+                                                        .lexendSemiBold,
+                                                    textAlign: TextAlign.start),
+                                                Row(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.end,
+                                                    children: [
+                                                      RatingBar.builder(
+                                                          initialRating: 3,
+                                                          minRating: 1,
+                                                          itemSize: 20,
+                                                          direction:
+                                                              Axis.horizontal,
+                                                          allowHalfRating: true,
+                                                          itemCount: 5,
+                                                          itemBuilder: (context,
+                                                                  _) =>
+                                                              const Icon(
+                                                                  Icons.star,
+                                                                  color: Colors
+                                                                      .amber),
+                                                          onRatingUpdate:
+                                                              (rating) {
+                                                            print(rating);
+                                                          }),
+                                                      SizedBox(width: width_5),
+                                                      CommonText(
+                                                          list["rating"]!,
+                                                          fontSize: font_17)
+                                                    ])
+                                              ])
+                                        ]),
+                                        CommonText(list["rating"]!,
+                                            color: AppColors.blueGreyColor,
+                                            fontSize: font_14)
+                                      ]),
+                                  subtitle: Padding(
+                                      padding: EdgeInsets.only(top: 15.sp),
+                                      child: CommonText(
+                                          maxLines: 150,
+                                          list["des"]!,
+                                          color: AppColors.blueGreyColor,
+                                          textAlign: TextAlign.start,
+                                          fontSize: font_14))));
+                        })
                   ]))));
     });
   }
