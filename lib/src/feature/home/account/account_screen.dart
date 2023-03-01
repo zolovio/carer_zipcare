@@ -20,40 +20,35 @@ class AccountScreen extends StatelessWidget {
       final _vm = ref.watch(accountVmProvider);
       return Scaffold(
           appBar: CommonAppBarWithBack(
-              title: "Account",
-              fontSize: font_20,
-              logo: true,
-              nofi: true),
+              title: "Account", fontSize: font_20, logo: true, nofi: true),
           body: SingleChildScrollView(
               child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 20.sp, vertical: 15.sp),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.sp, vertical: 15.sp),
                   child: Column(children: [
                     Container(
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
                             color: AppColors.whiteColor,
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(50.0)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(50.0)),
                             border: Border.all(
-                                color: AppColors.darkPinkColor,
-                                width: 2)),
-                        child: Padding(
+                                color: AppColors.darkPinkColor, width: 2)),
+                        child: const Padding(
                             padding: EdgeInsets.all(3),
                             child: CircleAvatar(
                                 radius: 30,
                                 backgroundImage:
                                     AssetImage(profileBackImage)))),
                     SizedBox(height: height_10),
-                    CommonText("Profile set-up"),
+                    const CommonText("Profile set-up"),
                     SizedBox(height: height_10),
                     Container(
                         width: screenWidth,
                         decoration: BoxDecoration(
                             color: AppColors.lighterPinkColor,
-                            borderRadius:
-                                BorderRadius.circular(radius_10)),
+                            borderRadius: BorderRadius.circular(radius_10)),
                         child: Padding(
                             padding: EdgeInsets.all(12.sp),
                             child: Column(children: [
@@ -62,12 +57,10 @@ class AccountScreen extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     CommonText("Only 1 step to go",
-                                        fontFamily:
-                                            FontFamily.lexendSemiBold,
+                                        fontFamily: FontFamily.lexendSemiBold,
                                         fontSize: font_16),
                                     CommonText("Finish set-up",
-                                        color:
-                                            AppColors.darkPinkColor,
+                                        color: AppColors.darkPinkColor,
                                         fontSize: font_16)
                                   ]),
                               CommonText("80%", fontSize: font_14),
@@ -77,8 +70,7 @@ class AccountScreen extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       color: AppColors.darkPinkColor,
                                       borderRadius:
-                                          BorderRadius.circular(
-                                              radius_2))),
+                                          BorderRadius.circular(radius_2))),
                               SizedBox(height: height_5),
                               CommonText(
                                   "Complete the steps to increase your chances for bookings.",
@@ -88,65 +80,52 @@ class AccountScreen extends StatelessWidget {
                                   fontSize: font_15)
                             ]))),
                     SizedBox(height: height_15),
-                    Container(
-                        child: GridView.builder(
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: _vm.accountList.length,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2),
-                            itemBuilder:
-                                (BuildContext context, int index) {
-                              var list = _vm.accountList[index];
-                              return Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    list["on"]));
-                                      },
-                                      child: Container(
-                                          width: screenWidth,
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius
-                                                      .circular(
-                                                          radius_10),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: AppColors
-                                                        .lightestGreyColor,
-                                                    blurRadius: 5,
-                                                    spreadRadius: 2)
-                                              ]),
-                                          child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .center,
-                                              children: [
-                                                imageAsset(
-                                                    list["img"]!,
-                                                    height:
-                                                        height_60),
-                                                SizedBox(
-                                                    height:
-                                                        height_15),
-                                                CommonText(
-                                                    list["title"]!,
-                                                    maxLines: 2,
-                                                    fontSize: font_17,
-                                                    color: AppColors
-                                                        .blueGreyColor,
-                                                    fontFamily:
-                                                        FontFamily
-                                                            .lexendBold)
-                                              ]))));
-                            })),
+                    GridView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: _vm.accountList.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2),
+                        itemBuilder: (BuildContext context, int index) {
+                          var list = _vm.accountList[index];
+                          return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => list["on"]));
+                                  },
+                                  child: Container(
+                                      width: screenWidth,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(radius_10),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                                color:
+                                                    AppColors.lightestGreyColor,
+                                                blurRadius: 5,
+                                                spreadRadius: 2)
+                                          ]),
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            imageAsset(list["img"]!,
+                                                height: height_60),
+                                            SizedBox(height: height_15),
+                                            CommonText(list["title"]!,
+                                                maxLines: 2,
+                                                fontSize: font_17,
+                                                color: AppColors.blueGreyColor,
+                                                fontFamily:
+                                                    FontFamily.lexendBold)
+                                          ]))));
+                        }),
                     //  Container(
                     //      height: 150,
                     //      child: ListView.builder(
