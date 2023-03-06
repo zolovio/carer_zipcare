@@ -113,7 +113,7 @@ class MyReviewsScreen extends StatelessWidget {
                                           textAlign: TextAlign.start,
                                           fontSize: font_14))));
                         })
-                  ]))));
+                  ],),),),);
     });
   }
 }
